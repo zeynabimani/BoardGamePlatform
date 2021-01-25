@@ -11,6 +11,11 @@ if(isset($_REQUEST["EnterRoom"])){
         if(isset($_REQUEST[$ChGameID])){
             $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
             $res = $mysql->Execute($query);
+
+            $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
+            $mysql->Prepare($query2);
+            $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
+
         }
     }
 }
@@ -25,6 +30,7 @@ if(isset($_REQUEST["EnterRoom"])){
             <th>نام مدیر</th> 
             <th>وضعیت</th> 
             <th>ورود</th>
+            <th>کاربران حاضر</th>
         </tr>
     <?php
         ini_set("error_reporting", E_All);
@@ -40,12 +46,31 @@ if(isset($_REQUEST["EnterRoom"])){
                 echo  "<td>ندارد</td>";
             }
             else{
+                $query2 = "select UserID from sadaf.accountspecs where PersonID = " . $rec["managerID"];
+                $res2 = $mysql->Execute($query2);
+                while($rec2 = $res2->fetch()){
+                    $admin =  $rec2["UserID"];
+                }
                 $disabled = "disabled";
-                echo  "<td>" . $rec["managerID"] . "</td>";
+                echo  "<td>" . $admin . "</td>";
             }
             echo  "<td>" . $rec["status"] . "</td>";
             $ChGameID = "ch_" . $rec["roomID"]; 
-            echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td></tr>";
+            echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
+        
+            $query2 = "select * from sadaf.game where roomID = " . $rec["roomID"];
+            $res2 = $mysql->Execute($query2);
+            $members = "";
+            while($rec2 = $res2->fetch()){
+                $query3 = "select UserID from sadaf.accountspecs where PersonID = " . $rec2["userID"];
+                $res3 = $mysql->Execute($query2);
+                while($rec2 = $res2->fetch()){
+                    $admin =  $rec2["UserID"];
+                }
+                $members = $members . " " . $admin;
+            }
+            echo  "<td>" . $members . "</td></tr>";
+            
         }
     ?>
     </table>

@@ -1,5 +1,5 @@
 [{"roomID":1, "managerID":1, "status":"empty"},
- {"roomID":2, "managerID":0, "status":"empty"},
+ {"roomID":2, "managerID":1, "status":"empty"},
  {"roomID":3, "managerID":0, "status":"empty"},
  {"roomID":4, "managerID":0, "status":"empty"},
  {"roomID":5, "managerID":0, "status":"empty"},
