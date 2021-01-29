@@ -15,12 +15,24 @@ if(isset($_REQUEST["EnterRoom"])){
             $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
             $mysql->Prepare($query2);
             $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
-
         }
     }
 }
-
 ?>
+
+<?php 
+
+function getRoomStatus(){
+    $mysql = pdodb::getInstance();
+    $query = "select * from sadaf.game where userID = " . $_SESSION["PersonID"];
+    $res = $mysql->Execute($query); 
+    while($rec = $res->fetch()){
+        return $rec["roomID"];
+    }
+    return -1;
+}
+
+?> 
 
 <form method="POST">
     <input type="hidden" name="EnterRoom" value="1">
@@ -56,6 +68,12 @@ if(isset($_REQUEST["EnterRoom"])){
             }
             echo  "<td>" . $rec["status"] . "</td>";
             $ChGameID = "ch_" . $rec["roomID"]; 
+            
+            $isMem = getRoomStatus();
+            if($isMem != -1)
+                if ($isMem != $rec["roomID"])
+                    $disabled = "disabled";
+            
             echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
         
             $query2 = "select * from sadaf.game where roomID = " . $rec["roomID"];
