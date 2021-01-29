@@ -69,10 +69,10 @@ function getRoomStatus(){
             echo  "<td>" . $rec["status"] . "</td>";
             $ChGameID = "ch_" . $rec["roomID"]; 
             
-            $isMem = getRoomStatus();
-            if($isMem != -1)
-                if ($isMem != $rec["roomID"])
-                    $disabled = "disabled";
+            // $isMem = getRoomStatus();
+            // if($isMem != -1)
+            //     if ($isMem != $rec["roomID"])
+            //         $disabled = "disabled";
             
             echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
         
