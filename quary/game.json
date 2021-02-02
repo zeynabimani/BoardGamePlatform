@@ -1,1 +1,4 @@
-[{"roomID":1, "userID":1}]
+[{"roomID":1, "userID":1},
+ {"roomID":2, "userID":1},
+ {"roomID":3, "userID":2},
+ {"roomID":4, "userID":2}]

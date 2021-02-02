@@ -51,10 +51,9 @@ function getRoomStatus(){
         $query = "select * from sadaf.room where roomID < 100";
         $res = $mysql->Execute($query);
         while($rec = $res->fetch()){
-            
+            $disabled = "";
             echo  "<tr><td>" . $rec["roomID"] . "</td>";
             if($rec["managerID"] == ""){
-                $disabled = "";
                 echo  "<td>ندارد</td>";
             }
             else{
@@ -63,7 +62,8 @@ function getRoomStatus(){
                 while($rec2 = $res2->fetch()){
                     $admin =  $rec2["UserID"];
                 }
-                $disabled = "disabled";
+                if($_SESSION["PersonID"] != $rec["managerID"])
+                    $disabled = "disabled";
                 echo  "<td>" . $admin . "</td>";
             }
             echo  "<td>" . $rec["status"] . "</td>";
