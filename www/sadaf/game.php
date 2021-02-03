@@ -8,7 +8,7 @@ if(isset($_REQUEST["EnterRoom"])){
     $res = $mysql->Execute($query);
     while($rec = $res->fetch()){
         $ChGameID = "ch_" . $rec["roomID"]; 
-        if(isset($_REQUEST[$ChGameID])){
+        if(isset($_REQUEST[$ChGameID]) && $rec["managerID"] == ""){            
             $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
             $res = $mysql->Execute($query);
 
