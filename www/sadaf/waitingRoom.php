@@ -8,6 +8,7 @@
         $results=array();
         $game=array();
         $persons=array();
+        $copypersons=array();
         $i=0;
         $j=0;
         $t=0;
@@ -26,19 +27,23 @@
             $game[$j]=$rec2["userID"];
             $j=$j+1;
         }
+        $copypersons=$persons;
+        
         for($p=0;$p<count($persons);$p++){
             $is_recognize=false;
             for($g=0;$g<count($game)&&$is_recognize==false;$g++){
                 if($persons[$p][1]===$game[$g]){
-                    $results[$t]=array($persons[$p][0],$persons[$p][1]);
+                   
+                    unset($copypersons[$p]);
+                   // $results[$t]=array($persons[$p][0],$persons[$p][1]);
                     $is_recognize=true;
-                    $t=$t+1;
+                    //$t=$t+1;
                    
                 }
             }
         }
-              
-        
+        $copypersons=array_values($copypersons);
+        $results=$copypersons;
         
     return $results; 
     }
