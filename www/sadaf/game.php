@@ -8,14 +8,21 @@ if(isset($_REQUEST["EnterRoom"])){
     $res = $mysql->Execute($query);
     while($rec = $res->fetch()){
         $ChGameID = "ch_" . $rec["roomID"]; 
-        if(isset($_REQUEST[$ChGameID]) && $rec["managerID"] == ""){            
+        if( $rec["managerID"]==""){
             $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
             $res = $mysql->Execute($query);
 
             $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
             $mysql->Prepare($query2);
             $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
+            
+
         }
+        if(isset($_REQUEST[$ChGameID])){   
+           $action ="GameRoom.php";       
+           
+        }
+        
     }
 }
 ?>
@@ -34,7 +41,7 @@ function getRoomStatus(){
 
 ?> 
 
-<form method="POST">
+<form method="POST" action= "<?php echo $action; ?>">
     <input type="hidden" name="EnterRoom" value="1">
     <table class="table table-sm table-bordered table-striped">
         <tr>
@@ -75,6 +82,7 @@ function getRoomStatus(){
             //         $disabled = "disabled";
             
             echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
+            //echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\" onclick=\"javascript: form.action='Menu.php'\";></td>";
         
             $query2 = "select * from sadaf.game where roomID = " . $rec["roomID"];
             $res2 = $mysql->Execute($query2);
@@ -93,6 +101,5 @@ function getRoomStatus(){
     ?>
     </table>
 </form>
-
 </body>
 </html>
