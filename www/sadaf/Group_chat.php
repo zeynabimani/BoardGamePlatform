@@ -285,7 +285,7 @@ if (isset($_POST['submit'])){
 
 
 
-                        <input type=”text” size=”19″ name=”ContactName”><br><br>
+                        <input type=”text”  name=”ContactName”><br><br>
 
                         Message:<br> <textarea name=”ContactCommentt” rows=”6″ cols=”20″>
 
