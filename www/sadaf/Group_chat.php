@@ -107,7 +107,7 @@ if (isset($_POST['submit'])){
             margin-left:7px;
             background-color:#58b666;
             line-height:10px;
-            max-width:90%;
+            max-width:45%;
             display:inline-block;
             text-align:left;
             border-radius:2px;
@@ -130,7 +130,7 @@ if (isset($_POST['submit'])){
             margin-right:7px;
             background-color:#6fbced;
             line-height:10px;
-            max-width:90%;
+            max-width:45%;
             display:inline-block;
             text-align:left;
             border-radius:2px;
@@ -145,9 +145,9 @@ if (isset($_POST['submit'])){
         }
         main footer .input1{
             resize:none;
-            border:100%;
+            border:50%;
             display:block;
-            width:120%;
+            width:60%;
             height:27px;
             border-radius:1px;
             padding:10px;
@@ -156,9 +156,9 @@ if (isset($_POST['submit'])){
         }
         main footer textarea{
             resize:none;
-            border:100%;
+            border:50%;
             display:block;
-            width:140%;
+            width:70%;
             height:27px;
             border-radius:1px;
             padding:10px;
@@ -168,9 +168,9 @@ if (isset($_POST['submit'])){
         }
         main footer .input2{
             resize:none;
-            border:100%;
+            border:50%;
             display:block;
-            width:40%;
+            width:20%;
             height:27px;
             border-radius:1px;
             padding:10px;
