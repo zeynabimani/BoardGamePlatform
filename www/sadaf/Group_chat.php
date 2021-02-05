@@ -278,8 +278,7 @@ if (isset($_POST['submit'])){
                 endwhile;
                 ?>
             </div>
-            <!--
-            <footer>
+
                 <table>
                     <tr>
                         <th>
@@ -298,8 +297,7 @@ if (isset($_POST['submit'])){
                         </th>
                     </tr>
                 </table>
-            </footer>
-            -->
+
         </form>
     </main>
 </div>
