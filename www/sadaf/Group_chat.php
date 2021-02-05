@@ -256,11 +256,9 @@ if (isset($_POST['submit'])){
                             echo" </div>";
                             echo"</div>";
                             echo"<br/><br/>";
-
                         }
                         else
                         {
-
                             echo "<div id=\"triangle1\" class=\"triangle1\"></div>";
                             echo "<div id=\"message1\" class=\"message1\">";
                             echo"<span style=\"color:white;float:right;\">";
@@ -274,8 +272,6 @@ if (isset($_POST['submit'])){
                             echo"    </div>";
                             echo" </div>";
                             echo" <br/><br/>";
-
-
                         }
                     }
                 endwhile;
