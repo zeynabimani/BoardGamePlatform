@@ -35,24 +35,24 @@ if (isset($_POST['submit'])){
             font-family:Arial;
         }
         #container{
-            width:250px;
-            height:350px;
+            width:500px;
+            height:700px;
             background:white;
             margin:0 auto;
             font-size:0;
-            border-radius:2px;
+            border-radius:4px;
             overflow:hidden;
         }
         main{
-            width:250px;
-            height:350px;
+            width:500px;
+            height:700px;
             display:inline-block;
-            font-size:7px;
+            font-size:15px;
             vertical-align:top;
         }
         main header{
-            height:50px;
-            padding:15px 10px 15px 20px;
+            height:100px;
+            padding:30px 20px 30px 40px;
             background-color:#622569;
         }
         main header > *{
@@ -60,20 +60,20 @@ if (isset($_POST['submit'])){
             vertical-align:top;
         }
         main header img:first-child{
-            width:12px;
-            margin-top:4px;
+            width:24px;
+            margin-top:8px;
         }
         main header img:last-child{
-            width:12px;
-            margin-top:4px;
+            width:24px;
+            margin-top:8px;
         }
         main header div{
-            margin-left:45px;
-            margin-right:45px;
+            margin-left:90px;
+            margin-right:90px;
         }
         main header h2{
-            font-size:12px;
-            margin-top:2px;
+            font-size:24px;
+            margin-top:4px;
             text-align:center;
             color:#ffff55;
         }
@@ -83,64 +83,64 @@ if (isset($_POST['submit'])){
             list-style-type:none;
             position:relative;
             overflow:auto;
-            height:250px;
+            height:500px;
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
             position: relative;
-            border-top:1px solid #ffff55;
-            border-bottom:1px solid #2F353B;
+            border-top:2px solid #ffff55;
+            border-bottom:2px solid #2F353B;
         }
         main .triangle{
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 0 4px 4px 4px;
+            border-width: 0 4px 8px 8px;
             border-color: transparent transparent
             #58b666 transparent;
-            margin-left:10px;
+            margin-left:20px;
             clear:both;
         }
         main .message{
-            padding:5px;
+            padding:10px;
             color:#000;
-            margin-left:7px;
+            margin-left:14px;
             background-color:#58b666;
-            line-height:10px;
+            line-height:20px;
             max-width:45%;
             display:inline-block;
             text-align:left;
-            border-radius:2px;
+            border-radius:4px;
             clear:both;
         }
         main .triangle1{
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 0 4px 4px 4px;
+            border-width: 0 8px 8px 8px;
             border-color: transparent
             transparent #6fbced transparent;
-            margin-right:10px;
+            margin-right:20px;
             float:right;
             clear:both;
         }
         main .message1{
-            padding:5px;
+            padding:10px;
             color:#000;
-            margin-right:7px;
+            margin-right:14px;
             background-color:#6fbced;
-            line-height:10px;
+            line-height:20px;
             max-width:45%;
             display:inline-block;
             text-align:left;
-            border-radius:2px;
+            border-radius:4px;
             float:right;
             clear:both;
         }
 
         main footer{
-            height:75px;
-            padding:10px 15px 5px 10px;
+            height:150px;
+            padding:20px 30px 10px 20px;
             background-color:#622569;
         }
         main footer .input1{
@@ -148,39 +148,39 @@ if (isset($_POST['submit'])){
             border:50%;
             display:block;
             width:60%;
-            height:27px;
-            border-radius:1px;
-            padding:10px;
-            font-size:5px;
-            margin-bottom:6px;
+            height:55px;
+            border-radius:2px;
+            padding:20px;
+            font-size:10px;
+            margin-bottom:12px;
         }
         main footer textarea{
             resize:none;
             border:50%;
             display:block;
             width:70%;
-            height:27px;
-            border-radius:1px;
-            padding:10px;
-            font-size:6px;
-            margin-bottom:6px;
-            margin-left:10px;
+            height:55px;
+            border-radius:2px;
+            padding:20px;
+            font-size:12px;
+            margin-bottom:12px;
+            margin-left:20px;
         }
         main footer .input2{
             resize:none;
             border:50%;
             display:block;
             width:20%;
-            height:27px;
-            border-radius:1px;
-            padding:10px;
-            font-size:5px;
-            margin-bottom:6px;
-            margin-left:50px;
+            height:55px;
+            border-radius:2px;
+            padding:20px;
+            font-size:10px;
+            margin-bottom:12px;
+            margin-left:100px;
 
             text-align:center;
             background-color:black;
-            border: 2px solid white;
+            border: 4px solid white;
         }
         }
         main footer textarea::placeholder{
@@ -229,7 +229,7 @@ if (isset($_POST['submit'])){
                             <?php echo $row['msg']; ?></span> <br/>
                             <div>
                             <span style="color:black;float:left;
-                            font-size:5px;clear:both;">
+                            font-size:10px;clear:both;">
                                 <?php echo $row['userID']; ?>,
                                     <?php echo $row['dt']; ?>
                             </span>
@@ -256,11 +256,9 @@ if (isset($_POST['submit'])){
                             echo" </div>";
                             echo"</div>";
                             echo"<br/><br/>";
-
                         }
                         else
                         {
-
                             echo "<div id=\"triangle1\" class=\"triangle1\"></div>";
                             echo "<div id=\"message1\" class=\"message1\">";
                             echo"<span style=\"color:white;float:right;\">";
@@ -274,8 +272,6 @@ if (isset($_POST['submit'])){
                             echo"    </div>";
                             echo" </div>";
                             echo" <br/><br/>";
-
-
                         }
                     }
                 endwhile;
