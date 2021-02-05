@@ -278,12 +278,30 @@ if (isset($_POST['submit'])){
                 endwhile;
                 ?>
             </div>
+            <?php
+            echo "I am here :D";
+            ?>
+            <footer>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="submit"
+                                   id="submit" name="submit" value="send">
+                        </td>
+                        <td>
+                            <input  class="input1" type="text"
+                                    id="uname" name="uname"
+                                    placeholder="From">
 
-                        <input type=”text”  name=”ContactName”><br><br>
-
-                        msg:<textarea name=”ContactCommentt” rows=”6″ cols=”20″> </textarea>
-
-
+                        </td>
+                        <td>
+            <textarea id="msg" name="msg"
+                      rows='3' cols='50'
+                      placeholder="Type your message">
+            </textarea></td>
+                    </tr>
+                </table>
+            </footer>
         </form>
     </main>
 </div>
