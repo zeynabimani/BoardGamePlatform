@@ -278,9 +278,6 @@ if (isset($_POST['submit'])){
                 endwhile;
                 ?>
             </div>
-            <?php
-            echo "I am here :D";
-            ?>
             <footer>
                 <table>
                     <tr>
