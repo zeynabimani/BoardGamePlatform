@@ -83,7 +83,7 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:500px;
-            background-image:url(https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg);
+            background-image:url(www/sadaf/images/bg.jpg);
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
@@ -192,11 +192,9 @@ if (isset($_POST['submit'])){
 <div id="container">
     <main>
         <header>
-            <img src="www/sadaf/images/ico_star.png" alt="">
             <div>
                 <h2>GROUP CHAT</h2>
             </div>
-            <img src="www/sadaf/images/ico_star.png" alt="">
         </header>
 
         <script>
