@@ -87,9 +87,9 @@ function getRoomStatus(){
             $members = "";
             while($rec2 = $res2->fetch()){
                 $query3 = "select UserID from sadaf.accountspecs where PersonID = " . $rec2["userID"];
-                $res3 = $mysql->Execute($query2);
-                while($rec2 = $res2->fetch()){
-                    $admin =  $rec2["UserID"];
+                $res3 = $mysql->Execute($query3);
+                while($rec3 = $res3->fetch()){
+                    $admin =  $rec3["UserID"];
                 }
                 $members = $members . " " . $admin;
             }

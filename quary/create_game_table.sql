@@ -18,9 +18,9 @@ CREATE TABLE game_request(
 );
 
 CREATE TABLE chat (
-    idchat INT NOT NULL AUTO_INCREMENT,
-    userID VARCHAR(45) NULL,
-    msg VARCHAR(45) NULL,
-    dt VARCHAR(45) NULL,
+	idchat INT NOT NULL AUTO_INCREMENT,
+    roomID int,
+    userID int,
+    msg VARCHAR(100) NULL,
     PRIMARY KEY (idchat)
 );

@@ -6,6 +6,13 @@ include "gameClasses/Card.php";
 
 HTMLBegin();
 
+if(isset($_REQUEST["ChatSubmit"])){
+    $message= $_POST['message'];
+    $mysql = pdodb::getInstance();
+    $query = "insert into sadaf.chat (roomID, userID, msg) values (?,?,?)";
+    $mysql->Prepare($query);
+    $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"], $message));
+}
 
 $bankRedTokens = 7;
 $bankBlueTokens = 7;
@@ -361,8 +368,10 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
 
 <script src="JsFile.js"></script>
 
-<form method="POST">
-    <table class="table table-sm table-bordered table-striped">
+<form  action="" method="POST">
+    <input type="hidden" name="ChatSubmit" value="1">
+    <div style="display:flex; flex-direction:row">
+        <table class="table table-sm table-bordered table-striped" style="width:80%">
         <tr>
             <td>انتخاب ۳ الماس </td>
             <td>انتخاب ۲ الماس همرنگ</td>
@@ -512,4 +521,33 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
 
             ?>
     </table>
+    <div style="width:20%; display:flex; flex-direction:column; border:2px solid black">
+            <div style="height:90%; ">
+                <table class="table table-sm table-bordered table-striped">
+                    <tr>
+                        <th>نام</th>
+                        <th>پيام</th> 
+                    </tr>
+                <?php
+                    $mysql = pdodb::getInstance();
+                    $query = "select * from sadaf.chat where roomID < " . $_SESSION["id"];
+                    $res = $mysql->Execute($query);
+                    while($rec = $res->fetch()){
+                        $query2 = "select UserID from sadaf.accountspecs where PersonID = " . $rec["userID"];
+                        $res2 = $mysql->Execute($query2);
+                        while($rec2 = $res2->fetch()){
+                            $writer =  $rec2["UserID"];
+                        }
+                        echo  "<tr><td>" . $writer . "</td>";
+                        echo  "<td>" . $rec["msg"] . "</td></tr>";
+                    }
+                ?>
+                </table>
+            </div>
+            <label for="message">Chat</label>
+            <textarea id="message" name="message" placeholder="Type Your Message">
+            </textarea>
+            <input type="submit" class="btn btn-success btn-sm">
+        </div>
+    </div>
 </form>
