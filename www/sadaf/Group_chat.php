@@ -1,5 +1,8 @@
 <?php
+include "header.inc.php";
 
+
+HTMLBegin();
 if (isset($_POST['submit'])){
 
     $mysql = pdodb::getInstance();
@@ -9,7 +12,6 @@ if (isset($_POST['submit'])){
         $mysql, $_REQUEST['msg']);
     date_default_timezone_set('Asia/Tehran');
     $ts=date('y-m-d h:ia');
-
 
     $sql = "INSERT INTO sadf.chat (userID, msg, dt) 
         VALUES ('$un', '$m', '$ts')";
