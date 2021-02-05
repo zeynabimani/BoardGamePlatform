@@ -281,23 +281,21 @@ if (isset($_POST['submit'])){
             <footer>
                 <table>
                     <tr>
-                        <th>
+                        <tr>
                             <input  class="input1" type="text"
                                     id="uname" name="uname"
                                     placeholder="From">
-                            <?php
-echo "I am here :D";
-?>
-                        </th>
-                        <th>
+
+                        </tr>
+                        <tr>
             <textarea id="msg" name="msg"
                       rows='3' cols='50'
                       placeholder="Type your message">
-            </textarea></th>
-                        <th>
+            </textarea></tr>
+                        <tr>
                             <input class="input2" type="submit"
                                    id="submit" name="submit" value="send">
-                        </th>
+                        </tr>
                     </tr>
                 </table>
             </footer>
