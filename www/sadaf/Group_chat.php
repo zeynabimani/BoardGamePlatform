@@ -5,7 +5,7 @@ HTMLBegin();
 if (isset($_POST['submit'])){
     $mysql = pdodb::getInstance();
 
-// Escape user inputs for security
+
     $un= mysqli_real_escape_string(
         $link, $_REQUEST['uname']);
     $m = mysqli_real_escape_string(
@@ -13,7 +13,7 @@ if (isset($_POST['submit'])){
     date_default_timezone_set('Asia/Tehran');
     $ts=date('y-m-d h:ia');
 
-// Attempt insert query execution
+
     $sql = "INSERT INTO sadf.chats (uname, msg, dt) 
         VALUES ('$un', '$m', '$ts')";
     if(mysqli_query($link, $sql)){
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])){
     } else{
         echo "ERROR: Message not sent!!!";
     }
-    // Close connection
+
     mysqli_close($link);
 }
 ?>
@@ -34,6 +34,7 @@ if (isset($_POST['submit'])){
         body{
             background-color:#abd9e9;
             font-family:Arial;
+            overflow-x: hidden;
         }
         #container{
             width:500px;
@@ -43,6 +44,7 @@ if (isset($_POST['submit'])){
             font-size:0;
             border-radius:5px;
             overflow:hidden;
+            overflow-x: hidden;
         }
         main{
             width:500px;
@@ -85,15 +87,13 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:500px;
-            background-image:url(
-            https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg);
+            background-image:url("../images/bg.jpg");
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
             position: relative;
             border-top:2px solid #fff;
             border-bottom:2px solid #fff;
-
         }
         main .triangle{
             width: 0;
@@ -196,13 +196,11 @@ if (isset($_POST['submit'])){
 <div id="container">
     <main>
         <header>
-            <img src="https://s3-us-west-2.amazonaws.com/
-             s.cdpn.io/1940306/ico_star.png" alt="">
+            <img src="ico_star.png" alt="">
             <div>
                 <h2>GROUP CHAT</h2>
             </div>
-            <img src="https://s3-us-west-2.amazonaws.com/
-            s.cdpn.io/1940306/ico_star.png" alt="">
+            <img src="ico_star.png" alt="">
         </header>
 
         <script>
@@ -221,10 +219,9 @@ if (isset($_POST['submit'])){
                 $user = "root";
                 $pass = "";
                 $db_name = "chat_app";
-                $con = new mysqli($host, $user, $pass, $db_name);
 
                 $query = "SELECT * FROM chats";
-                $run = $con->query($query);
+                $run = $mysql->query($query);
                 $i=0;
 
                 while($row = $run->fetch_array()) :
@@ -238,7 +235,7 @@ if (isset($_POST['submit'])){
  <?php echo $row['msg']; ?></span> <br/>
                             <div>
    <span style="color:black;float:left;
-   font-size:10px;clear:both;">
+   font-size:5px;clear:both;">
     <?php echo $row['uname']; ?>,
         <?php echo $row['dt']; ?>
    </span>
@@ -259,7 +256,7 @@ if (isset($_POST['submit'])){
  </span> <br/>
                                 <div>
   <span style="color:black;float:right;
-          font-size:10px;clear:both;">
+          font-size:5px;clear:both;">
   <?php echo $row['uname']; ?>,
         <?php echo $row['dt']; ?>
  </span>
@@ -278,7 +275,7 @@ if (isset($_POST['submit'])){
  </span> <br/>
                                 <div>
  <span style="color:black;float:left;
-         font-size:10px;clear:both;">
+         font-size:5px;clear:both;">
  <?php echo $row['uname']; ?>,
       <?php echo $row['dt']; ?>
  </span>
