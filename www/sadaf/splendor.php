@@ -544,7 +544,6 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
                 ?>
                 </table>
             </div>
-            <label for="message">Chat</label>
             <textarea id="message" name="message" placeholder="Type Your Message">
             </textarea>
             <input type="submit" class="btn btn-success btn-sm">
