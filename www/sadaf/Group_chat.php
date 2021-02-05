@@ -30,10 +30,6 @@ if (isset($_POST['submit'])){
         *{
             box-sizing:border-box;
         }
-        body{
-            background-color:#abd9e9;
-            font-family:Arial;
-        }
         #container{
             width:250px;
             height:350px;
@@ -84,7 +80,6 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:250px;
-            background-image:url(https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg);
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
