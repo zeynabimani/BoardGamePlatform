@@ -34,6 +34,7 @@ if (isset($_POST['submit'])){
         body{
             background-color:#abd9e9;
             font-family:Arial;
+            overflow-x: hidden;
         }
         #container{
             width:500px;
