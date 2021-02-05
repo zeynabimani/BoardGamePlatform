@@ -187,7 +187,7 @@ if (isset($_POST['submit'])){
 <body onload="show_func()">
 <div id="container">
     <main>
-        /////////
+
         <header>
             <img src="www/sadaf/images/ico_star.png" alt="">
             <div>
