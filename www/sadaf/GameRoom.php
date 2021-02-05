@@ -83,7 +83,7 @@
         $query = "insert into sadaf.game_request (roomID, userID, status)
         values (".$_SESSION["id"].",".$idNew.", 'Waiting');";
         $mysql->Execute($query); 
-       echo "pppppp";
+     
         
     }
     
@@ -99,16 +99,16 @@
 
 <form method="POST" >
 <div class="container">
-  <h2>Modal Example</h2>
+  
   <!-- Trigger the modal with a button -->
   <?php
   $isManager=isRoomManager();
   if($isManager===1){
-      echo "1";
+     
      echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
   }
   elseif($isManager===0){
-      echo "2";
+     
       $disabled="disabled";
     echo " <button type=\"button\" class=\"btn btn-success btn-sm\"".$disabled.">Send Invitation to your Freinds</button>" ;
 
