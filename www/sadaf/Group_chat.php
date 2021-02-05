@@ -194,7 +194,7 @@ if (isset($_POST['submit'])){
                 <h2>GROUP CHAT</h2>
             </div>
             <img src="www/sadaf/images/ico_star.png" alt="">
-        </header>//
+        </header>
 
         <script>
             function show_func(){
@@ -203,7 +203,7 @@ if (isset($_POST['submit'])){
                 element.scrollTop = element.scrollHeight;
 
             }
-        </script>////
+        </script>
 
         <form id="myform" action="Group_chat.php" method="POST" >
             <div class="inner_div" id="chathist">
@@ -278,7 +278,7 @@ if (isset($_POST['submit'])){
                 endwhile;
                 ?>
             </div>
-
+            <footer>
                 <table>
                     <tr>
                         <th>
@@ -297,7 +297,7 @@ if (isset($_POST['submit'])){
                         </th>
                     </tr>
                 </table>
-
+            </footer>
         </form>
     </main>
 </div>
