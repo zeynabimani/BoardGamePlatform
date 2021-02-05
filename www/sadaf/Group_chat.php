@@ -1,28 +1,26 @@
 <?php
-include "header.inc.php";
-HTMLBegin();
-
 if (isset($_POST['submit'])){
+
+
     $mysql = pdodb::getInstance();
 
-
     $un= mysqli_real_escape_string(
-        $link, $_REQUEST['uname']);
+        $mysql, $_REQUEST['userID']);
     $m = mysqli_real_escape_string(
-        $link, $_REQUEST['msg']);
+        $mysql, $_REQUEST['msg']);
     date_default_timezone_set('Asia/Tehran');
     $ts=date('y-m-d h:ia');
 
 
-    $sql = "INSERT INTO sadf.chats (uname, msg, dt) 
+    $sql = "INSERT INTO sadf.chats (userID, msg, dt) 
         VALUES ('$un', '$m', '$ts')";
-    if(mysqli_query($link, $sql)){
+    if(mysqli_query($mysql, $sql)){
         ;
     } else{
         echo "ERROR: Message not sent!!!";
     }
 
-    mysqli_close($link);
+    mysqli_close($mysql);
 }
 ?>
 <html>
@@ -34,7 +32,6 @@ if (isset($_POST['submit'])){
         body{
             background-color:#abd9e9;
             font-family:Arial;
-            overflow-x: hidden;
         }
         #container{
             width:500px;
@@ -44,7 +41,6 @@ if (isset($_POST['submit'])){
             font-size:0;
             border-radius:5px;
             overflow:hidden;
-            overflow-x: hidden;
         }
         main{
             width:500px;
@@ -215,10 +211,7 @@ if (isset($_POST['submit'])){
         <form id="myform" action="Group_chat.php" method="POST" >
             <div class="inner_div" id="chathist">
                 <?php
-                $host = "localhost";
-                $user = "root";
-                $pass = "";
-                $db_name = "$mysql";
+                $mysql = pdodb::getInstance();
 
                 $query = "SELECT * FROM chats";
                 $run = $mysql->query($query);
@@ -236,7 +229,7 @@ if (isset($_POST['submit'])){
                             <div>
    <span style="color:black;float:left;
    font-size:5px;clear:both;">
-    <?php echo $row['uname']; ?>,
+    <?php echo $row['userID']; ?>,
         <?php echo $row['dt']; ?>
    </span>
                             </div>
@@ -246,7 +239,7 @@ if (isset($_POST['submit'])){
                     }
                     else
                     {
-                        if($row['uname']!=$first['uname'])
+                        if($row['userID']!=$first['userID'])
                         {
                             ?>
                             <div id="triangle" class="triangle"></div>
@@ -257,7 +250,7 @@ if (isset($_POST['submit'])){
                                 <div>
   <span style="color:black;float:right;
           font-size:5px;clear:both;">
-  <?php echo $row['uname']; ?>,
+  <?php echo $row['userID']; ?>,
         <?php echo $row['dt']; ?>
  </span>
                                 </div>
@@ -276,7 +269,7 @@ if (isset($_POST['submit'])){
                                 <div>
  <span style="color:black;float:left;
          font-size:5px;clear:both;">
- <?php echo $row['uname']; ?>,
+ <?php echo $row['userID']; ?>,
       <?php echo $row['dt']; ?>
  </span>
                                 </div>
