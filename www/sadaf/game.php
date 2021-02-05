@@ -2,6 +2,7 @@
 include "header.inc.php";
 HTMLBegin();
 
+
 if(isset($_REQUEST["EnterRoom"])){
     $mysql = pdodb::getInstance();
     $query = "select * from sadaf.room where roomID < 100";
@@ -9,26 +10,17 @@ if(isset($_REQUEST["EnterRoom"])){
     while($rec = $res->fetch()){
         $ChGameID = "ch_" . $rec["roomID"]; 
         $IdGame=$rec["roomID"];
-       
-
-        if( $rec["managerID"]=="" && isset($_REQUEST[$ChGameID])){
-            $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
-            $res = $mysql->Execute($query);
-
-            $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
-            $mysql->Prepare($query2);
-            $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
-            $action ="splendor.php";   
-           
-            
-        }
-        elseif(isset($_REQUEST[$ChGameID])){   
+        if(isset($_REQUEST[$ChGameID])){    
+            if($rec["managerID"]==""){
+                $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
+                $res = $mysql->Execute($query);
+                $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
+                $mysql->Prepare($query2);
+                $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
+            }
             $action ="splendor.php"; 
             $_SESSION["id"]=$IdGame;
-            
         }
-        
-        
     }
 }
 ?>
@@ -46,8 +38,8 @@ function getRoomStatus(){
 }
 
 ?> 
-
-<form method="POST" action= "<?php echo $action; ?>">
+	
+<form method="POST" action= "<?php echo $action ?>">
     <input type="hidden" name="EnterRoom" value="1">
     <table class="table table-sm table-bordered table-striped">
         <tr>

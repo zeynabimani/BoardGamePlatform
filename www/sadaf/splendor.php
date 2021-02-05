@@ -6,22 +6,7 @@ include "gameClasses/Card.php";
 
 HTMLBegin();
 
-if(isset($_REQUEST["EnterRoom"])){
-    $mysql = pdodb::getInstance();
-    $query = "select * from sadaf.room where roomID < 100";
-    $res = $mysql->Execute($query);
-    while($rec = $res->fetch()){
-        $ChGameID = "ch_" . $rec["roomID"];
-        if(isset($_REQUEST[$ChGameID])){
-            $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
-            $res = $mysql->Execute($query);
 
-            $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
-            $mysql->Prepare($query2);
-            $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
-        }
-    }
-}
 $bankRedTokens = 7;
 $bankBlueTokens = 7;
 $bankGreenTokens = 7;
@@ -357,7 +342,6 @@ function function3($array, $tu)
 <script src="JsFile.js"></script>
 
 <form method="POST">
-    <input type="hidden" name="EnterRoom" value="1">
     <table class="table table-sm table-bordered table-striped">
         <tr>
             <td>انتخاب ۳ الماس </td>

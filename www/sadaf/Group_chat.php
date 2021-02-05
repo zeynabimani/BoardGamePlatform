@@ -30,6 +30,10 @@ if (isset($_POST['submit'])){
         *{
             box-sizing:border-box;
         }
+        body{
+            background-color:#abd9e9;
+            font-family:Arial;
+        }
         #container{
             width:250px;
             height:350px;
