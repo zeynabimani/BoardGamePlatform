@@ -67,20 +67,25 @@ function getRoomStatus(){
                 while($rec2 = $res2->fetch()){
                     $admin =  $rec2["UserID"];
                 }
-                if($_SESSION["PersonID"] != $rec["managerID"])
-                    $disabled = "disabled";
+                if($_SESSION["PersonID"] != $rec["managerID"]){
+                    $sw = 1;
+                    $query2 = "select * from sadaf.game_request where userID = " . $_SESSION["PersonID"];
+                    $res2 = $mysql->Execute($query2); 
+                    while($rec2 = $res2->fetch()){
+                        if($rec2["roomID"] == $rec["roomID"]){
+                            if($rec2["status"] == "Accepted")
+                                $sw = 0;
+                        }
+                    }
+                    if($sw == 1)
+                        $disabled = "disabled";
+                }
                 echo  "<td>" . $admin . "</td>";
             }
             echo  "<td>" . $rec["status"] . "</td>";
             $ChGameID = "ch_" . $rec["roomID"]; 
             
-            // $isMem = getRoomStatus();
-            // if($isMem != -1)
-            //     if ($isMem != $rec["roomID"])
-            //         $disabled = "disabled";
-            
             echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
-            //echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"></td>";
         
             $query2 = "select * from sadaf.game where roomID = " . $rec["roomID"];
             $res2 = $mysql->Execute($query2);
