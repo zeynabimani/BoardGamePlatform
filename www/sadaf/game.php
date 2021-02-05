@@ -8,6 +8,7 @@ if(isset($_REQUEST["EnterRoom"])){
     $res = $mysql->Execute($query);
     while($rec = $res->fetch()){
         $ChGameID = "ch_" . $rec["roomID"]; 
+        $IdGame=$rec["roomID"];
        
 
         if( $rec["managerID"]=="" && isset($_REQUEST[$ChGameID])){
@@ -22,7 +23,8 @@ if(isset($_REQUEST["EnterRoom"])){
             
         }
         elseif(isset($_REQUEST[$ChGameID])){   
-            $action ="GameRoom.php";   
+            $action ="GameRoom.php"; 
+            $_SESSION["id"]=$IdGame;
             
         }
         
@@ -105,5 +107,6 @@ function getRoomStatus(){
     ?>
     </table>
 </form>
+
 </body>
 </html>

@@ -3,11 +3,33 @@
     include "classes/SystemFacilities.class.php";
 
     HTMLBegin();
-
+      
     ?>
-    <div class="container">
+    <?php
+     function isRoomManager(){
+        $isManager=0;
+        $mysql = pdodb::getInstance();
+        $query = "select * from sadaf.room where roomID = " . $_SESSION["id"];
+        $res = $mysql->Execute($query); 
+       while($rec = $res->fetch()){
+           if($_SESSION["PersonID"]===$rec["managerID"]){
+            
+              $isManager=1;
+               
+    
+          }
+       }
+        
+        return $isManager;
+    }
+    ?>
+
+
+<form method="POST" >
+<div class="container">
   <h2>Modal Example</h2>
   <!-- Trigger the modal with a button -->
+ 
   <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Send Invitation to your Freinds</button>
 
   <!-- Modal -->
@@ -33,7 +55,7 @@
   </div>          
   
 </div>   
-
+</form>
    
     </body>
     </html>
