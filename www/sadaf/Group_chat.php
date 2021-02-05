@@ -180,7 +180,7 @@ if (isset($_POST['submit'])){
         }
         }
         main footer textarea::placeholder{
-            color:#ddd;
+            color:#f1b0b7;
         }
 
     </style>
