@@ -71,7 +71,7 @@ if (isset($_POST['submit'])){
             font-size:12px;
             margin-top:2px;
             text-align:center;
-            color:#FFFFFF;
+            color:#ffff55;
         }
         main .inner_div{
             padding-left:0;
@@ -84,8 +84,8 @@ if (isset($_POST['submit'])){
             background-repeat:no-repeat;
             background-size:cover;
             position: relative;
-            border-top:1px solid #fff;
-            border-bottom:1px solid #fff;
+            border-top:1px solid #ffff55;
+            border-bottom:1px solid #ffb848;
         }
         main .triangle{
             width: 0;
@@ -173,7 +173,7 @@ if (isset($_POST['submit'])){
             font-size:5px;
             margin-bottom:6px;
             margin-left:50px;
-            color:white;
+
             text-align:center;
             background-color:black;
             border: 2px solid white;
@@ -281,19 +281,7 @@ if (isset($_POST['submit'])){
             <footer>
                 <table>
                     <tr>
-                        <td>
-                            <input  class="input1" type="text"
-                                    id="uname" name="uname"
-                                    placeholder="From">
-                            <?php
-echo "I am here :D";
-?>
-                        </td>
-                        <td>
-            <textarea id="msg" name="msg"
-                      rows='3' cols='50'
-                      placeholder="Type your message">
-            </textarea></td>
+
                         <td>
                             <input class="input2" type="submit"
                                    id="submit" name="submit" value="send">
