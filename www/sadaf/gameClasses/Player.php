@@ -65,4 +65,17 @@ class Player
         }
     }
 
+    function reserveACard($card){
+
+        if(sizeof($this->cards)<3) {
+            array_push($this->cards, $card);
+        }
+
+        echo $card->id;
+
+        $this->goldenTokens = $_SESSION['this->goldenTokens'];
+        $this->goldenTokens++;
+        $_SESSION['this->goldenTokens']= $this->goldenTokens;
+    }
+
 }
