@@ -1,6 +1,7 @@
 <?php
+include "header.inc.php";
+HTMLBegin();
 if (isset($_POST['submit'])){
-
 
     $mysql = pdodb::getInstance();
 
