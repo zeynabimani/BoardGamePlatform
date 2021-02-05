@@ -289,8 +289,6 @@ if (isset($_POST['submit'])){
 
                         Message:<br> <textarea name=”ContactCommentt” rows=”6″ cols=”20″>
 
-
-</textarea><br><br> <input type=”submit” value=”Submit”> </form>
                     </tr>
                 </table>
             </footer>
