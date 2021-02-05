@@ -87,7 +87,7 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:500px;
-            background-image:url("sadaf/www/sadaf/images/bg.jpg");
+            background-image:url("www/sadaf/images/bg.jpg");
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
