@@ -92,7 +92,6 @@ if (isset($_POST['submit'])){
             position: relative;
             border-top:2px solid #fff;
             border-bottom:2px solid #fff;
-
         }
         main .triangle{
             width: 0;
