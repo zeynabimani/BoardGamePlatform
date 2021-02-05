@@ -5,7 +5,7 @@ HTMLBegin();
 if (isset($_POST['submit'])){
     $mysql = pdodb::getInstance();
 
-// Escape user inputs for security
+
     $un= mysqli_real_escape_string(
         $link, $_REQUEST['uname']);
     $m = mysqli_real_escape_string(
@@ -13,7 +13,7 @@ if (isset($_POST['submit'])){
     date_default_timezone_set('Asia/Tehran');
     $ts=date('y-m-d h:ia');
 
-// Attempt insert query execution
+
     $sql = "INSERT INTO sadf.chats (uname, msg, dt) 
         VALUES ('$un', '$m', '$ts')";
     if(mysqli_query($link, $sql)){
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])){
     } else{
         echo "ERROR: Message not sent!!!";
     }
-    // Close connection
+
     mysqli_close($link);
 }
 ?>
