@@ -34,24 +34,24 @@ if (isset($_POST['submit'])){
             font-family:Arial;
         }
         #container{
-            width:500px;
-            height:700px;
+            width:250px;
+            height:350px;
             background:white;
             margin:0 auto;
             font-size:0;
-            border-radius:5px;
+            border-radius:2px;
             overflow:hidden;
         }
         main{
-            width:500px;
-            height:700px;
+            width:250px;
+            height:350px;
             display:inline-block;
-            font-size:15px;
+            font-size:7px;
             vertical-align:top;
         }
         main header{
-            height:100px;
-            padding:30px 20px 30px 40px;
+            height:50px;
+            padding:15px 10px 15px 20px;
             background-color:#622569;
         }
         main header > *{
@@ -59,20 +59,20 @@ if (isset($_POST['submit'])){
             vertical-align:top;
         }
         main header img:first-child{
-            width:24px;
-            margin-top:8px;
+            width:12px;
+            margin-top:4px;
         }
         main header img:last-child{
-            width:24px;
-            margin-top:8px;
+            width:12px;
+            margin-top:4px;
         }
         main header div{
-            margin-left:90px;
-            margin-right:90px;
+            margin-left:45px;
+            margin-right:45px;
         }
         main header h2{
-            font-size:25px;
-            margin-top:5px;
+            font-size:12px;
+            margin-top:2px;
             text-align:center;
             color:#FFFFFF;
         }
@@ -82,65 +82,65 @@ if (isset($_POST['submit'])){
             list-style-type:none;
             position:relative;
             overflow:auto;
-            height:500px;
+            height:250px;
             background-image:url(https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg);
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
             position: relative;
-            border-top:2px solid #fff;
-            border-bottom:2px solid #fff;
+            border-top:1px solid #fff;
+            border-bottom:1px solid #fff;
         }
         main .triangle{
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 0 8px 8px 8px;
+            border-width: 0 4px 4px 4px;
             border-color: transparent transparent
             #58b666 transparent;
-            margin-left:20px;
+            margin-left:10px;
             clear:both;
         }
         main .message{
-            padding:10px;
+            padding:5px;
             color:#000;
-            margin-left:15px;
+            margin-left:7px;
             background-color:#58b666;
-            line-height:20px;
+            line-height:10px;
             max-width:90%;
             display:inline-block;
             text-align:left;
-            border-radius:5px;
+            border-radius:2px;
             clear:both;
         }
         main .triangle1{
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 0 8px 8px 8px;
+            border-width: 0 4px 4px 4px;
             border-color: transparent
             transparent #6fbced transparent;
-            margin-right:20px;
+            margin-right:10px;
             float:right;
             clear:both;
         }
         main .message1{
-            padding:10px;
+            padding:5px;
             color:#000;
-            margin-right:15px;
+            margin-right:7px;
             background-color:#6fbced;
-            line-height:20px;
+            line-height:10px;
             max-width:90%;
             display:inline-block;
             text-align:left;
-            border-radius:5px;
+            border-radius:2px;
             float:right;
             clear:both;
         }
 
         main footer{
-            height:150px;
-            padding:20px 30px 10px 20px;
+            height:75px;
+            padding:10px 15px 5px 10px;
             background-color:#622569;
         }
         main footer .input1{
@@ -148,35 +148,35 @@ if (isset($_POST['submit'])){
             border:100%;
             display:block;
             width:120%;
-            height:55px;
-            border-radius:3px;
-            padding:20px;
-            font-size:13px;
-            margin-bottom:13px;
+            height:27px;
+            border-radius:1px;
+            padding:10px;
+            font-size:5px;
+            margin-bottom:6px;
         }
         main footer textarea{
             resize:none;
             border:100%;
             display:block;
             width:140%;
-            height:55px;
-            border-radius:3px;
-            padding:20px;
-            font-size:13px;
-            margin-bottom:13px;
-            margin-left:20px;
+            height:27px;
+            border-radius:1px;
+            padding:10px;
+            font-size:6px;
+            margin-bottom:6px;
+            margin-left:10px;
         }
         main footer .input2{
             resize:none;
             border:100%;
             display:block;
             width:40%;
-            height:55px;
-            border-radius:3px;
-            padding:20px;
-            font-size:13px;
-            margin-bottom:13px;
-            margin-left:100px;
+            height:27px;
+            border-radius:1px;
+            padding:10px;
+            font-size:5px;
+            margin-bottom:6px;
+            margin-left:50px;
             color:white;
             text-align:center;
             background-color:black;
