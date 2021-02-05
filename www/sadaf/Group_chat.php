@@ -282,11 +282,15 @@ if (isset($_POST['submit'])){
                 <table>
                     <tr>
 
-                        <td>
-                            <input type="submit"
-                                   id="submit" name="submit" value="send">
-                        </td>
 
+
+
+                        <input type=”text” size=”19″ name=”ContactName”><br><br>
+
+                        Message:<br> <textarea name=”ContactCommentt” rows=”6″ cols=”20″>
+
+
+</textarea><br><br> <input type=”submit” value=”Submit”> </form>
                     </tr>
                 </table>
             </footer>
