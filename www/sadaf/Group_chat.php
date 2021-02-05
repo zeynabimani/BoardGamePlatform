@@ -193,11 +193,11 @@ if (isset($_POST['submit'])){
 <div id="container">
     <main>
         <header>
-            <img src="ico_star.png" alt="">
+            <img src="sadaf/www/sadaf/images/ico_star.png" alt="">
             <div>
                 <h2>GROUP CHAT</h2>
             </div>
-            <img src="ico_star.png" alt="">
+            <img src="sadaf/www/sadaf/images/ico_star.png" alt="">
         </header>
 
         <script>
