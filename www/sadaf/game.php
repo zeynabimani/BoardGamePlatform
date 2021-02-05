@@ -87,8 +87,8 @@ function getRoomStatus(){
             //     if ($isMem != $rec["roomID"])
             //         $disabled = "disabled";
             
-           // echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
-            echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"></td>";
+            echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
+            //echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"></td>";
         
             $query2 = "select * from sadaf.game where roomID = " . $rec["roomID"];
             $res2 = $mysql->Execute($query2);
