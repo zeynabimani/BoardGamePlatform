@@ -3,7 +3,7 @@
     include "classes/SystemFacilities.class.php";
 
     HTMLBegin();
-      
+    
     ?>
     <?php
      function isRoomManager(){
@@ -62,6 +62,39 @@
 
 
     ?>
+    <?php
+     function addtoDataBase($v){
+        $isManager=0;
+        $i=0;
+        $persons=array();
+        $mysql = pdodb::getInstance();
+        $query2 = "select * from sadaf.accountspecs";
+        $res2 = $mysql->Execute($query2); 
+        while($rec2 = $res2->fetch()){
+            $persons[$i]=array($rec2["PersonID"],$rec2["UserID"]);
+            $i=$i+1;
+
+        }
+        for($s=0;$s<count($persons);$s++){
+            if($persons[$s][1]===$v){
+                $idNew=$persons[$s][0];
+            }
+        }
+        $query = "insert into sadaf.game_request (roomID, userID, status)
+        values (".$_SESSION["id"].",".$idNew.", 'Waiting');";
+        $mysql->Execute($query); 
+       echo "pppppp";
+        
+    }
+    
+      
+    ?>
+    <?php
+    if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
+        addtoDataBase($_REQUEST["Users"]);
+    }
+    
+    ?>
 
 
 <form method="POST" >
@@ -104,10 +137,13 @@
           <tr>
 					
 			<td>
-            <select class="form-control sadaf-m-input" name="کاربران" id="Persons">
+            <select class="form-control sadaf-m-input" name="Users" id="Persons">
             <option value=0>-
             <? echo getPersons();?>
            
+        </td>
+        <td>
+        <input type="submit" name="ersal" class="btn btn-primary" value="Send">
         </td>
         </tr>
         </select>
@@ -125,6 +161,7 @@
   
 </div>   
 </form>
+
    
     </body>
     </html>
