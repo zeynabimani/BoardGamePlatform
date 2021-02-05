@@ -44,6 +44,7 @@ if (isset($_POST['submit'])){
             font-size:0;
             border-radius:5px;
             overflow:hidden;
+            overflow-x: hidden;
         }
         main{
             width:500px;
