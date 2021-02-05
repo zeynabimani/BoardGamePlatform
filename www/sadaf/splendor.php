@@ -6,22 +6,7 @@ include "gameClasses/Card.php";
 
 HTMLBegin();
 
-if(isset($_REQUEST["EnterRoom"])){
-    $mysql = pdodb::getInstance();
-    $query = "select * from sadaf.room where roomID < 100";
-    $res = $mysql->Execute($query);
-    while($rec = $res->fetch()){
-        $ChGameID = "ch_" . $rec["roomID"];
-        if(isset($_REQUEST[$ChGameID])){
-            $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
-            $res = $mysql->Execute($query);
 
-            $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
-            $mysql->Prepare($query2);
-            $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
-        }
-    }
-}
 $bankRedTokens = 7;
 $bankBlueTokens = 7;
 $bankGreenTokens = 7;
@@ -57,108 +42,84 @@ while($rec = $res->fetch()){
     }
 }
 
-array_push($cards, new Card(0,1,1,1,1,0,
+array_push($cards, new Card(1,1,1,1,1,0,
     0,0,1,"images/our/cards/1/1.png",1));
 
-array_push($cards, new Card(1,1,2,1,1,0,
+array_push($cards, new Card(2,1,2,1,1,0,
     0,0,1,"images/our/cards/1/2.png",1));
-array_push($cards, new Card(2,0,2,1,0,1,
+array_push($cards, new Card(3,0,2,1,0,1,
     0,0,1,"images/our/cards/1/3.png",1));
 
-array_push($cards, new Card(3,1,1,0,2,0,
+array_push($cards, new Card(4,1,1,0,2,0,
     0,0,1,"images/our/cards/1/17.png",2));
-array_push($cards, new Card(4,0,1,1,1,0,
+array_push($cards, new Card(5,0,1,1,1,0,
     0,0,1,"images/our/cards/1/18.png",2));
-array_push($cards, new Card(5,0,0,1,3,0,
+array_push($cards, new Card(6,0,0,1,3,0,
     0,0,1,"images/our/cards/1/20.png",2));
 
-array_push($cards, new Card(6,1,0,2,1,0,
+array_push($cards, new Card(7,1,0,2,1,0,
     0,0,1,"images/our/cards/1/31.png",4));
 
-array_push($cards, new Card(7,1,1,1,0,1,
+array_push($cards, new Card(8,1,1,1,0,1,
     0,0,1,"images/our/cards/1/34.png",4));
 
-array_push($cards, new Card(8,0,0,2,0,2,
+array_push($cards, new Card(9,0,0,2,0,2,
     0,0,1,"images/our/cards/1/46.png",3));
 
-array_push($cards, new Card(9,2,0,2,1,0,
+array_push($cards, new Card(10,2,0,2,1,0,
     0,0,1,"images/our/cards/1/30.png",5));
 
 
 
 //2
-array_push($cards, new Card(10,0,2,3,3,0,
+array_push($cards, new Card(11,0,2,3,3,0,
     0,2,2,"images/our/cards/1/35.png",3));
 
-array_push($cards, new Card(11,3,0,0,0,3,
+array_push($cards, new Card(12,3,0,0,0,3,
     0,2,2,"images/our/cards/1/25.png",4));
 
-array_push($cards, new Card(12,2,0,2,3,0,
+array_push($cards, new Card(13,2,0,2,3,0,
     0,2,2,"images/our/cards/1/18.png",5));
 
-array_push($cards, new Card(13,0,0,3,3,0,
+array_push($cards, new Card(14,0,0,3,3,0,
     0,1,2,"images/our/cards/1/10.png",2));
 
-array_push($cards, new Card(14,3,0,3,0,0,
+array_push($cards, new Card(15,3,0,3,0,0,
     0,1,2,"images/our/cards/1/6.png",1));
 
-array_push($cards, new Card(15,3,2,0,0,0,
+array_push($cards, new Card(16,3,2,0,0,0,
     0,1,2,"images/our/cards/1/1.png",1));
 
-array_push($cards, new Card(16,0,0,0,3,3,
+array_push($cards, new Card(17,0,0,0,3,3,
     0,2,2,"images/our/cards/1/22.png",4));
 
-array_push($cards, new Card(17,2,0,0,3,0,
+array_push($cards, new Card(18,2,0,0,3,0,
     0,1,2,"images/our/cards/1/33.png",3));
 
-array_push($cards, new Card(18,2,0,0,3,2,
+array_push($cards, new Card(19,2,0,0,3,2,
     0,2,2,"images/our/cards/1/19.png",5));
-array_push($cards, new Card(19,0,3,2,3,0,
+array_push($cards, new Card(20,0,3,2,3,0,
     0,3,2,"images/our/cards/1/28.png",4));
 
 
 //type 3
-array_push($cards, new Card(20,6,4,0,0,0,
+array_push($cards, new Card(21,6,4,0,0,0,
     0,3,3,"images/our/cards/3/1.png",1));
 
-array_push($cards, new Card(21,5,0,3,4,0,
+array_push($cards, new Card(22,5,0,3,4,0,
     0,3,3,"images/our/cards/3/22.png",4));
 
-array_push($cards, new Card(22,6,0,3,0,0,
+array_push($cards, new Card(23,6,0,3,0,0,
     0,3,3,"images/our/cards/3/30.png",3));
 
-array_push($cards, new Card(23,5,4,0,0,0,
+array_push($cards, new Card(24,5,4,0,0,0,
     0,3,3,"images/our/cards/3/17.png",5));
 
-array_push($cards, new Card(24,0,0,0,5,5,
+array_push($cards, new Card(25,0,0,0,5,5,
     0,3,3,"images/our/cards/3/10.png",2));
 
-array_push($cards, new Card(25,0,4,0,6,0,
+array_push($cards, new Card(26,0,4,0,6,0,
     0,3,3,"images/our/cards/3/26.png",3));
-
-array_push($cards, new Card(26,6,3,0,0,3,
-    0,3,3,"images/our/cards/3/6.png",1));
-array_push($cards, new Card(27,5,0,3,4,0,
-    0,3,3,"images/our/cards/3/20.png",4));
-
-array_push($cards, new Card(28,0,3,3,6,0,
-    0,5,3,"images/our/cards/3/25.png",3));
-
-array_push($cards, new Card(29,5,3,3,0,3,
-    0,5,3,"images/our/cards/3/15.png",5));
-//type prince
-array_push($cards, new Card(30,3,3,3,0,3,
-    0,3,4,"images/our/cards/prince/1.png",6));
-array_push($cards, new Card(31,0,3,3,3,3,
-    0,3,4,"images/our/cards/prince/2.png",6));
-array_push($cards, new Card(32,3,3,0,3,3,
-    0,3,4,"images/our/cards/prince/3.png",6));
-array_push($cards, new Card(33,3,3,3,3,0,
-    0,3,4,"images/our/cards/prince/4.png",6));
-array_push($cards, new Card(34,3,0,3,0,3,
-    0,0,4,"images/our/cards/prince/5.png",6));
-
-
 $flag = 0;
 
 //echo $cards[0]->imageLink;
@@ -401,7 +362,6 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
 <script src="JsFile.js"></script>
 
 <form method="POST">
-    <input type="hidden" name="EnterRoom" value="1">
     <table class="table table-sm table-bordered table-striped">
         <tr>
             <td>انتخاب ۳ الماس </td>
