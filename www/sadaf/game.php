@@ -8,20 +8,26 @@ if(isset($_REQUEST["EnterRoom"])){
     $res = $mysql->Execute($query);
     while($rec = $res->fetch()){
         $ChGameID = "ch_" . $rec["roomID"]; 
-        if( $rec["managerID"]==""){
+        $IdGame=$rec["roomID"];
+       
+
+        if( $rec["managerID"]=="" && isset($_REQUEST[$ChGameID])){
             $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
             $res = $mysql->Execute($query);
 
             $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
             $mysql->Prepare($query2);
             $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
-            
-
-        }
-        if(isset($_REQUEST[$ChGameID])){   
-           $action ="GameRoom.php";       
+            $action ="GameRoom.php";   
            
+            
         }
+        elseif(isset($_REQUEST[$ChGameID])){   
+            $action ="GameRoom.php"; 
+            $_SESSION["id"]=$IdGame;
+            
+        }
+        
         
     }
 }
@@ -81,8 +87,8 @@ function getRoomStatus(){
             //     if ($isMem != $rec["roomID"])
             //         $disabled = "disabled";
             
-            echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
-            //echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\" onclick=\"javascript: form.action='Menu.php'\";></td>";
+           // echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
+            echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"></td>";
         
             $query2 = "select * from sadaf.game where roomID = " . $rec["roomID"];
             $res2 = $mysql->Execute($query2);
@@ -101,5 +107,6 @@ function getRoomStatus(){
     ?>
     </table>
 </form>
+
 </body>
 </html>
