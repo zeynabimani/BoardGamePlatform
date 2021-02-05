@@ -1,5 +1,6 @@
 <?php
-
+include "header.inc.php";
+HTMLBegin();
 if (isset($_POST['submit'])){
 
     $mysql = pdodb::getInstance();
@@ -83,7 +84,7 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:500px;
-            background-image:url(www/sadaf/images/bg.jpg);
+            background-image:url('www/sadaf/images/bg.jpg');
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
