@@ -19,7 +19,15 @@ $cards= array();
 $turn =0;
 $flag = 1;
 $players= array();
-ini_set("error_reporting", E_All);
+
+$cardOne=0;
+$cardTwo=10;
+$cardThree=20;
+$cardPrince=30;
+
+$imageSelectedId = 0;
+
+//ini_set("error_reporting", E_All);
 $mysql = pdodb::getInstance();
 $query = "SELECT userID FROM sadaf.game where roomID=?;";
 $mysql->Prepare($query);
@@ -168,14 +176,26 @@ function function2($array, $tu)
 }
 
 if(array_key_exists('btn3', $_POST)){
-    function3($players, $turn);
+    function3($players, $turn, $imageSelectedId, $cards);
+//    $cardOne = $_SESSION['cardOne'];
+//    $cardOne++;
+//    $_SESSION['cardOne']= $cardOne;
 }
 
-function function3($array, $tu)
+function function3($array, $tu, $cardId, $cards)
 {
-    $array[$tu]->reserveACard();
+    echo $cardId;
+    $array[$tu]->reserveACard($cards[$cardId]);
 }
 
+function imageClick($imageSelectedId,$cards, $cardOne, $counter){
+//    $imageSelectedId = $_SESSION['imageSelectedId'];
+//    echo $imageSelectedId;
+//    $cards = $_SESSION['cards'];
+//    $cardOne = $_SESSION['cardOne'];
+    $imageSelectedId."' = '".$cards[$cardOne+$counter]->id;
+//    $_SESSION['imageSelectedId'] = $imageSelectedId;
+}
 ?>
 <?php
      function isRoomManager(){
@@ -354,22 +374,27 @@ function function3($array, $tu)
             <td>
                 <table >
                     <tr>
+                        <td>orange</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
                         <td><input type="checkbox" name="orange" id="orange" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
                         <td><input type="checkbox" name="blue" id="blue" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>green</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
                         <td><input type="checkbox" name="green" id="green" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>dark blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
                         <td><input type="checkbox" name="darkBlue" id="darkBlue" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>pink</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
                         <td><input type="checkbox" name="pink" id="pink" onclick="select1(this.id)"></td>
                     </tr>
@@ -378,26 +403,31 @@ function function3($array, $tu)
             <td>
                 <table >
                     <tr>
+                        <td>orange</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
                         <td><input type="checkbox" name="orange" id="orange1"  onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
                         <td><input type="checkbox" name="blue" id="blue1" onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>green</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
                         <td><input type="checkbox" name="green" id="green1" onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>dark blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
                         <td><input type="checkbox" name="darkBlue" id="darkblue1" onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
+                        <td>pink</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
                         <td><input type="checkbox" name="pink" id="pink1" onclick="select2(this.id)"></td>
@@ -450,39 +480,36 @@ function function3($array, $tu)
         </tr>
         <tr>
             <?php
-            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".function1()."' src='".$cards[0]->imageLink."'/td>"
-            //                        <td><img id= "img_fraction" style="width:10vw;" src="images/our/cards/1/1.png" ></td>
-            //                        <td><img id= "img_fraction" style="width:10vw;" src="images/cards/3.png" ></td>
-            //                        <td><img id= "img_fraction" style="width:10vw;" src="images/cards/4.png" ></td>
+            echo "<td><img name='image' style='width:10vw;' onclick='".imageClick($imageSelectedId,$cards, $cardOne, 0)."' src='".$cards[$cardOne]->imageLink."'></td>";
+            echo "<td><img name='image' style='width:10vw;' onclick='".imageClick($imageSelectedId,$cards, $cardOne,1)."' src='".$cards[$cardOne+1]->imageLink."'></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".imageClick($imageSelectedId,2)."' src='".$cards[$cardOne+2]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardOne+3]->id."' src='".$cards[$cardOne+3]->imageLink."' ></td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo]->id."' src='".$cards[$cardTwo]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo+1]->id."' src='".$cards[$cardTwo+1]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo+2]->id."' src='".$cards[$cardTwo+2]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo+3]->id."' src='".$cards[$cardTwo+3]->imageLink."' ></td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+1]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+2]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+3]->imageLink."' ></td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince+1]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince]->imageLink."' ></td>";
+            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince]->imageLink."' ></td>";
+            echo "</tr>";
+            //            echo "<tr>";
+            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/17.png' ></td>";
+            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/18.png' ></td>";
+            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/19.png' ></td>";
+            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/20.png' ></td>";
+            //            echo "</tr>";
+
             ?>
-        </tr>
-        <tr>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/5.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/6.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/7.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/8.png" ></td>
-        </tr>
-        <tr>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/9.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/10.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/11.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/12.png" ></td>
-        </tr>
-        <tr>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/13.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/14.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/15.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/16.png" ></td>
-        </tr>
-        <tr>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/17.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/18.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/19.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/20.png" ></td>
-        </tr>
-        <?php
-
-
-        ?>
     </table>
 </form>
