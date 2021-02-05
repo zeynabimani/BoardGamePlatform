@@ -227,81 +227,81 @@ if (isset($_POST['submit'])){
                         <div id="message1" class="message1">
                             <span style="color:white;float:right;">
                             <?php echo $row['msg']; ?></span> <br/>
-                                                        <div>
+                            <div>
                             <span style="color:black;float:left;
                             font-size:5px;clear:both;">
                                 <?php echo $row['userID']; ?>,
                                     <?php echo $row['dt']; ?>
                             </span>
-                                                        </div>
                             </div>
-                            <br/><br/>
+                        </div>
+                        <br/><br/>
                         <?php
                     }
                     else
                     {
                         if($row['userID']!=$first['userID'])
                         {
-                            
+
                             echo "<div id=\"triangle\" class=\"triangle\"></div>";
                             echo "<div id=\"message\" class=\"message\">";
-                           echo " <span style=\"color:white;float:left;\">";
-                           echo $row['msg']; 
-                          echo "</span> <br/>";
-                               echo "<div>";
+                            echo " <span style=\"color:white;float:left;\">";
+                            echo $row['msg'];
+                            echo "</span> <br/>";
+                            echo "<div>";
                             echo "<span style=\"color:black;float:right; font-size:5px;clear:both;\">";
-                            echo $row['userID']; 
+                            echo $row['userID'];
                             echo $row['dt'];
                             echo "</span>";
-                               echo" </div>";
+                            echo" </div>";
                             echo"</div>";
                             echo"<br/><br/>";
-                            
+
                         }
                         else
                         {
-                            
+
                             echo "<div id=\"triangle1\" class=\"triangle1\"></div>";
                             echo "<div id=\"message1\" class=\"message1\">";
                             echo"<span style=\"color:white;float:right;\">";
                             echo $row['msg'];
                             echo"</span> <br/>";
-                                echo"<div>";
+                            echo"<div>";
                             echo "<span style=\"color:black;float:left;font-size:5px;clear:both;\">";
-                              echo $row['userID']; 
-                             echo $row['dt'];
-                             echo "</span>";
+                            echo $row['userID'];
+                            echo $row['dt'];
+                            echo "</span>";
                             echo"    </div>";
-                           echo" </div>";
-                           echo" <br/><br/>";
+                            echo" </div>";
+                            echo" <br/><br/>";
 
-                           
+
                         }
                     }
                 endwhile;
                 ?>
             </div>
-           
-                <table>
-                    <tr>
-                        <td>
-                            <input type="submit"
-                                   id="submit" name="submit" value="send">
-                        </td>
-                        <td>
-                            <input  class="input1" type="text"
-                                    id="uname" name="uname"
-                                    placeholder="From">
 
-                        </td>
-                        <td>
+            <table>
+                <tr>
+                    <td>
+                        <input type="submit"
+                               id="submit" name="submit" value="send">
+                    </td>
+                    <td>
+                        <input  class="input1" type="text"
+                                id="uname" name="uname"
+                                placeholder="From">
+
+                    </td>
+                    <td>
             <textarea id="msg" name="msg"
                       rows='3' cols='50'
                       placeholder="Type your message">
             </textarea></td>
-                    </tr>
-                </table>
-          
+                </tr>
+            </table>
+
         </form>
     </main>
 </div>
