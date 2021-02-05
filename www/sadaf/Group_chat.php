@@ -218,7 +218,7 @@ if (isset($_POST['submit'])){
                 $host = "localhost";
                 $user = "root";
                 $pass = "";
-                $db_name = "chat_app";
+                $db_name = "$mysql";
 
                 $query = "SELECT * FROM chats";
                 $run = $mysql->query($query);
