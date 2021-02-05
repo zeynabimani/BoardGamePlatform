@@ -85,7 +85,7 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:500px;
-            background-image:url('bg.jpg');
+            background-image:url("bg.jpg");
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
@@ -194,13 +194,11 @@ if (isset($_POST['submit'])){
 <div id="container">
     <main>
         <header>
-            <img src="https://s3-us-west-2.amazonaws.com/
-             s.cdpn.io/1940306/ico_star.png" alt="">
+            <img src="ico_star.png" alt="">
             <div>
                 <h2>GROUP CHAT</h2>
             </div>
-            <img src="https://s3-us-west-2.amazonaws.com/
-            s.cdpn.io/1940306/ico_star.png" alt="">
+            <img src="ico_star.png" alt="">
         </header>
 
         <script>
