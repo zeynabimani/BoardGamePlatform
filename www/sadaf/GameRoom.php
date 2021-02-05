@@ -1,73 +1,39 @@
 <?php
     include "header.inc.php";
+    include "classes/SystemFacilities.class.php";
+
     HTMLBegin();
 
     ?>
-    <?php
-    function getWaitingPeople(){
-        $results=array();
-        $game=array();
-        $persons=array();
-        $copypersons=array();
-        $i=0;
-        $j=0;
-        $t=0;
-        $is_recognize=false;
-        $mysql = pdodb::getInstance();
-        $query = "select * from sadaf.accountspecs";
-        $query2 = "select * from sadaf.game";
-        $res = $mysql->Execute($query);
-        $res2 = $mysql->Execute($query2);
-        while($rec = $res->fetch()){
-         $persons[$i]=array($rec["UserID"],$rec["PersonID"]);
-         $i=$i+1;
-        }
+    <div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Send Invitation to your Freinds</button>
 
-        while($rec2 = $res2->fetch()){
-            $game[$j]=$rec2["userID"];
-            $j=$j+1;
-        }
-        $copypersons=$persons;
-        
-        for($p=0;$p<count($persons);$p++){
-            $is_recognize=false;
-            for($g=0;$g<count($game)&&$is_recognize==false;$g++){
-                if($persons[$p][1]===$game[$g]){
-                   
-                    unset($copypersons[$p]);
-                   // $results[$t]=array($persons[$p][0],$persons[$p][1]);
-                    $is_recognize=true;
-                    //$t=$t+1;
-                   
-                }
-            }
-        }
-        $copypersons=array_values($copypersons);
-        $results=$copypersons;
-        
-    return $results; 
-    }
-    ?>
-    <form method="POST">
-        <input type="hidden" name="EnterWaitingRoom" value="1">
-        <table class="table table-sm table-bordered table-striped">
-            <tr>
-                <th>نام کاربر</th> 
-                <th>شماره کاربر</th>   
-            </tr>
-    <?php
-        $Peoples =getWaitingPeople();
-        for($i=0;$i<count($Peoples);$i++){
-            echo "<tr>
-            <td>".$Peoples[$i][0]."</td>
-            <td>".$Peoples[$i][1]."</td>
-            
-            </tr>";
-        }
-        
-    ?>
-    </table>
-    </form>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+          <button type="button" class="btn btn-success btn-sm">ssss</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>          
+  
+</div>   
 
+   
     </body>
     </html>
