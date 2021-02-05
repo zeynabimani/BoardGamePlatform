@@ -5,8 +5,7 @@ if (isset($_POST['submit'])){
 
     $mysql = pdodb::getInstance();
 
-    $un= mysqli_real_escape_string(
-        $mysql, $_REQUEST['userID']);
+    $un= $_SESSION["PersonID"];
     $m = mysqli_real_escape_string(
         $mysql, $_REQUEST['msg']);
     date_default_timezone_set('Asia/Tehran');
