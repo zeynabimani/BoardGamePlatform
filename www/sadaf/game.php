@@ -18,7 +18,7 @@ if(isset($_REQUEST["EnterRoom"])){
             $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
             $mysql->Prepare($query2);
             $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
-            $action ="GameRoom.php";   
+            $action ="splendor.php";   
            
             
         }

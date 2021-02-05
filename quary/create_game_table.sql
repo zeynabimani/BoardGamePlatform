@@ -14,3 +14,11 @@ CREATE TABLE game_request(
     userID int,
     status ENUM('Accepted', 'Denied', 'Waiting')
 );
+
+CREATE TABLE sadaf.chat (
+    idchat INT NOT NULL AUTO_INCREMENT,
+    userID VARCHAR(45) NULL,
+    msg VARCHAR(45) NULL,
+    dt VARCHAR(45) NULL,
+    PRIMARY KEY (idchat)
+);
