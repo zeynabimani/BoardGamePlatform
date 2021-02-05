@@ -28,30 +28,85 @@ $bankWhiteTokens = 7;
 $bankBrownTokens = 7;
 $bankGoldenTokens = 5;
 
-$turn =0;
 
+$cards= array();
+$turn =0;
+$flag = 1;
 $players= array();
 ini_set("error_reporting", E_All);
 $mysql = pdodb::getInstance();
 $query = "SELECT userID FROM sadaf.game where roomID=?;";
 $mysql->Prepare($query);
 // which room we choose (fatemeh bayad bezane)
-$res = $mysql->ExecuteStatement(array(1));
+$res = $mysql->ExecuteStatement(array(1) );
 while($rec = $res->fetch()){
-
-//            echo  "<tr><td>" . $rec["userID"] . "</td>";
-    array_push($players, new Player($rec["userID"]));
-
+    if($flag==1) {
+        array_push($players, new player($rec["userID"], 0, 0, 0, 0,
+            0, 0, 0, null));
+        echo $rec["userID"];
+    }
+}
+$flag = 0;
+array_push($cards, new Card(0,1,1,1,1,0,
+    0,0,1,"images/our/cards/1/1.png",1));
+if(array_key_exists('btn1', $_POST)){
+    function1($players, $turn);
 }
 
-if(array_key_exists('select1', $_POST)){
-    function1($players);
-}
-
-function function1($array)
+function function1($array, $tu)
 {
     if(isset($_POST['orange'])){
-        echo $array[0];
+//            echo "aaa";
+        $array[$tu]->f1('orange');
+    }
+    if(isset($_POST['blue'])){
+//        echo "aaa";
+        $array[$tu]->f1('blue');
+    }
+    if(isset($_POST['green'])){
+//        echo "aaa";
+        $array[$tu]->f1('green');
+    }
+    if(isset($_POST['darkBlue'])){
+//        echo "aaa";
+        $array[$tu]->f1('darkBlue');
+    }
+    if(isset($_POST['pink'])){
+//        echo "aaa";
+        $array[$tu]->f1('pink');
+    }
+}
+
+if(array_key_exists('btn2', $_POST)){
+    function2($players, $turn);
+}
+
+function function2($array, $tu)
+{
+    if(isset($_POST['orange'])){
+//            echo "aaa";
+        $array[$tu]->f1('orange');
+        $array[$tu]->f1('orange');
+    }
+    if(isset($_POST['blue'])){
+//        echo "aaa";
+        $array[$tu]->f1('blue');
+        $array[$tu]->f1('blue');
+    }
+    if(isset($_POST['green'])){
+//        echo "aaa";
+        $array[$tu]->f1('green');
+        $array[$tu]->f1('green');
+    }
+    if(isset($_POST['darkBlue'])){
+        $array[$tu]->f1('darkBlue');
+        $array[$tu]->f1('darkBlue');
+    }
+    if(isset($_POST['pink'])){
+//        echo "aaa";
+        $array[$tu]->f1('pink');
+        $array[$tu]->f1('pink');
+//        echo $array[$tu]->pinkTokens;
     }
 }
 
@@ -75,27 +130,27 @@ function function1($array)
                     <tr>
                         <td>orange</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
-                        <td><input type="checkbox" name="orange" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="orange" id="orange" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
                         <td>blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
-                        <td><input type="checkbox" name="blue" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="blue" id="blue" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
                         <td>green</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
-                        <td><input type="checkbox" name="green"onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="green" id="green" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
                         <td>dark blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
-                        <td><input type="checkbox" name="darkBlue" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="darkBlue" id="darkBlue" onclick="select1(this.id)"></td>
                     </tr>
                     <tr>
                         <td>pink</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
-                        <td><input type="checkbox" name="pink" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="pink" id="pink" onclick="select1(this.id)"></td>
                     </tr>
                 </table>
             </td>
@@ -105,31 +160,31 @@ function function1($array)
                         <td>orange</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
-                        <td><input type="checkbox" name="orange" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="orange" id="orange1"  onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
                         <td>blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
-                        <td><input type="checkbox" name="blue" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="blue" id="blue1" onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
                         <td>green</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
-                        <td><input type="checkbox" name="green"onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="green" id="green1" onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
                         <td>dark blue</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
-                        <td><input type="checkbox" name="darkBlue" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="darkBlue" id="darkblue1" onclick="select2(this.id)"></td>
                     </tr>
                     <tr>
                         <td>pink</td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
                         <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
-                        <td><input type="checkbox" name="pink" onclick="select1(this.name)"></td>
+                        <td><input type="checkbox" name="pink" id="pink1" onclick="select2(this.id)"></td>
                     </tr>
                 </table>
             </td>
@@ -171,15 +226,15 @@ function function1($array)
             </td>
         </tr>
         <tr>
-            <td><button name="select1">انتخاب 1</button></td>
-            <td><button>انتخاب 2</button></td>
+            <td><button name="btn1">انتخاب 1</button></td>
+            <td><button name="btn2">انتخاب 2</button></td>
             <td><button>انتخاب 3</button></td>
             <td><button>انتخاب 4</button></td>
             <td><button>انتخاب 5</button></td>
         </tr>
         <tr>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/1.png" ></td>
-            <td><img id= "img_fraction" style="width:10vw;" src="images/cards/2.png" ></td>
+            <td><img id= "img_fraction" style="width:10vw;" src="images/our/cards/1/1.png" ></td>
+            <td><img id= "img_fraction" style="width:10vw;" src="images/our/cards/1/1.png" ></td>
             <td><img id= "img_fraction" style="width:10vw;" src="images/cards/3.png" ></td>
             <td><img id= "img_fraction" style="width:10vw;" src="images/cards/4.png" ></td>
         </tr>

@@ -3,8 +3,8 @@
 
 class Player
 {
-    public $userID, $orangeTokens=0, $blueTokens=0, $greenTokens=0, $darkBlueTokens=0,
-           $pinkTokens=0, $goldenTokens=0, $score=0, $cards;
+    public $userID, $orangeTokens, $blueTokens, $greenTokens, $darkBlueTokens,
+        $pinkTokens, $goldenTokens, $score, $cards, $reserves = array();
 
     /**
      * Player constructor.
@@ -36,20 +36,31 @@ class Player
     public function f1($color1){
         switch ($color1)
         {
-            case "red":
+            case "orange":
+                $this->orangeTokens = $_SESSION['this->orangeTokens'];
                 $this->orangeTokens++;
+                $_SESSION['this->orangeTokens']= $this->orangeTokens;
+//                echo $this->orangeTokens;
                 break;
             case "blue":
+                $this->blueTokens = $_SESSION['this->blueTokens'];
                 $this->blueTokens++;
+                $_SESSION['this->blueTokens']= $this->blueTokens;
                 break;
             case "green":
+                $this->greenTokens = $_SESSION['this->greenTokens'];
                 $this->greenTokens++;
+                $_SESSION['this->greenTokens']= $this->greenTokens;
                 break;
             case "pink":
+                $this->pinkTokens = $_SESSION['this->pinkTokens'];
                 $this->pinkTokens++;
+                $_SESSION['this->pinkTokens']= $this->pinkTokens;
                 break;
             case "darkBlue":
+                $this->darkBlueTokens = $_SESSION['this->darkBlueTokens'];
                 $this->darkBlueTokens++;
+                $_SESSION['this->darkBlueTokens']= $this->darkBlueTokens;
                 break;
         }
     }
