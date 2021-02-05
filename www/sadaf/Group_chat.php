@@ -85,7 +85,7 @@ if (isset($_POST['submit'])){
             background-size:cover;
             position: relative;
             border-top:1px solid #ffff55;
-            border-bottom:1px solid #ffb848;
+            border-bottom:1px solid #2F353B;
         }
         main .triangle{
             width: 0;
@@ -283,9 +283,10 @@ if (isset($_POST['submit'])){
                     <tr>
 
                         <td>
-                            <input class="input2" type="submit"
+                            <input type="submit"
                                    id="submit" name="submit" value="send">
                         </td>
+
                     </tr>
                 </table>
             </footer>
