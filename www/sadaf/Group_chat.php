@@ -285,6 +285,9 @@ if (isset($_POST['submit'])){
                             <input  class="input1" type="text"
                                     id="uname" name="uname"
                                     placeholder="From">
+                            <?php
+echo "I am here :D";
+?>
                         </th>
                         <th>
             <textarea id="msg" name="msg"
