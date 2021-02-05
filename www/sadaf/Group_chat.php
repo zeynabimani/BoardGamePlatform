@@ -85,8 +85,7 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:500px;
-            background-image:url(
-            https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg);
+            background-image:url(bg.jpg);
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
@@ -221,10 +220,9 @@ if (isset($_POST['submit'])){
                 $user = "root";
                 $pass = "";
                 $db_name = "chat_app";
-                $con = new mysqli($host, $user, $pass, $db_name);
 
                 $query = "SELECT * FROM chats";
-                $run = $con->query($query);
+                $run = $mysql->query($query);
                 $i=0;
 
                 while($row = $run->fetch_array()) :
@@ -238,7 +236,7 @@ if (isset($_POST['submit'])){
  <?php echo $row['msg']; ?></span> <br/>
                             <div>
    <span style="color:black;float:left;
-   font-size:10px;clear:both;">
+   font-size:5px;clear:both;">
     <?php echo $row['uname']; ?>,
         <?php echo $row['dt']; ?>
    </span>
@@ -259,7 +257,7 @@ if (isset($_POST['submit'])){
  </span> <br/>
                                 <div>
   <span style="color:black;float:right;
-          font-size:10px;clear:both;">
+          font-size:5px;clear:both;">
   <?php echo $row['uname']; ?>,
         <?php echo $row['dt']; ?>
  </span>
@@ -278,7 +276,7 @@ if (isset($_POST['submit'])){
  </span> <br/>
                                 <div>
  <span style="color:black;float:left;
-         font-size:10px;clear:both;">
+         font-size:5px;clear:both;">
  <?php echo $row['uname']; ?>,
       <?php echo $row['dt']; ?>
  </span>
