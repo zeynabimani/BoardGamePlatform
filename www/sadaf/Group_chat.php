@@ -11,7 +11,7 @@ if (isset($_POST['submit'])){
     $ts=date('y-m-d h:ia');
 
 
-    $sql = "INSERT INTO sadf.chats (userID, msg, dt) 
+    $sql = "INSERT INTO sadf.chat (userID, msg, dt) 
         VALUES ('$un', '$m', '$ts')";
     if(mysqli_query($mysql, $sql)){
         ;
@@ -212,7 +212,7 @@ if (isset($_POST['submit'])){
                 <?php
                 $mysql = pdodb::getInstance();
 
-                $query = "SELECT * FROM chats";
+                $query = "SELECT * FROM chat";
                 $run = $mysql->query($query);
                 $i=0;
 
