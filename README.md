@@ -15,3 +15,5 @@ Add these files as a `Operation Work` or `عمليات كاري`:
 * `splendor.php`
  
 Open `query.php` and copy the codes into the `game.php` file and run it just one time so that it makes the initial game rooms. Remove the code after one time running.
+## WaitingRoom
+Add waitingRoom.php as a 'Operation Work' Or 'عملیات کاری'
