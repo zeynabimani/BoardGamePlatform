@@ -30,6 +30,10 @@ if (isset($_POST['submit'])){
         *{
             box-sizing:border-box;
         }
+        body{
+            background-color:#abd9e9;
+            font-family:Arial;
+        }
         #container{
             width:250px;
             height:350px;
@@ -210,7 +214,7 @@ if (isset($_POST['submit'])){
                 <?php
                 $mysql = pdodb::getInstance();
 
-                $query = "SELECT * FROM chat";
+                $query = "SELECT * FROM sadaf.chat";
                 $run = $mysql->query($query);
                 $i=0;
 
