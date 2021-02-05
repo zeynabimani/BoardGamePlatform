@@ -22,6 +22,45 @@
         
         return $isManager;
     }
+    function getPersons(){
+        $results= array();
+        $persons=array();
+        $i=0;
+        $mysql = pdodb::getInstance();
+        $query = "select * from sadaf.game where roomID = " . $_SESSION["id"];
+        $query2 = "select * from sadaf.accountspecs";
+        $res2 = $mysql->Execute($query2); 
+        while($rec2 = $res2->fetch()){
+            $persons[$i]=array($rec2["PersonID"],$rec2["UserID"]);
+            $i=$i+1;
+
+        }
+         $copypersons=$persons;
+        $res = $mysql->Execute($query); 
+       while($rec = $res->fetch()){
+        for($j=0;$j<count($persons);$j++){
+            $is_recognize=false;
+           if($persons[$j][0]===$rec["userID"]&& $is_recognize==false){
+            unset($copypersons[$j]);
+            $is_recognize=true;
+               
+    
+          }
+       }
+    }
+    $copypersons=array_values($copypersons);
+    $results=$copypersons;
+    $stOptions="";
+    for($p=0;$p<count($results);$p++){
+        $stOptions.="<option value='".$results[$p][1]."'>";
+        $stOptions.=$results[$p][1];
+        $stOptions.="</option>";
+
+    }
+    return $stOptions;
+    }
+
+
     ?>
 
 
@@ -29,24 +68,54 @@
 <div class="container">
   <h2>Modal Example</h2>
   <!-- Trigger the modal with a button -->
+  <?php
+  $isManager=isRoomManager();
+  if($isManager===1){
+      echo "1";
+     echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
+  }
+  elseif($isManager===0){
+      echo "2";
+      $disabled="disabled";
+    echo " <button type=\"button\" class=\"btn btn-success btn-sm\"".$disabled.">Send Invitation to your Freinds</button>" ;
+
+  }
+  ?>
  
-  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Send Invitation to your Freinds</button>
+ <!-- <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Send Invitation to your Freinds</button>-->
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+  <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header align-right DivRtl">
+         <h4 class="modal-title ">ارسال دعوت نامه</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
-          <button type="button" class="btn btn-success btn-sm">ssss</button>
+        <div class="row">
+		<div class="col">
+          <p> انتخاب لیست کاربران</p>
+          <hr>
+          <table class="table table-sm table-stripped table-bordered">
+          <tr>
+					
+			<td>
+            <select class="form-control sadaf-m-input" name="کاربران" id="Persons">
+            <option value=0>-
+            <? echo getPersons();?>
+           
+        </td>
+        </tr>
+        </select>
+          </table>
         </div>
-        <div class="modal-footer">
+        </div>
+        </div>
+        <div class="modal-footer DivRtl">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
