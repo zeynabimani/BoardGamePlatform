@@ -23,7 +23,7 @@ if(isset($_REQUEST["EnterRoom"])){
             
         }
         elseif(isset($_REQUEST[$ChGameID])){   
-            $action ="GameRoom.php"; 
+            $action ="splendor.php"; 
             $_SESSION["id"]=$IdGame;
             
         }

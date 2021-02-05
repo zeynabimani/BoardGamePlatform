@@ -1,5 +1,8 @@
 <?php
+include "header.inc.php";
 
+
+HTMLBegin();
 if (isset($_POST['submit'])){
 
     $mysql = pdodb::getInstance();
@@ -9,7 +12,6 @@ if (isset($_POST['submit'])){
         $mysql, $_REQUEST['msg']);
     date_default_timezone_set('Asia/Tehran');
     $ts=date('y-m-d h:ia');
-
 
     $sql = "INSERT INTO sadf.chat (userID, msg, dt) 
         VALUES ('$un', '$m', '$ts')";
@@ -27,10 +29,6 @@ if (isset($_POST['submit'])){
     <style>
         *{
             box-sizing:border-box;
-        }
-        body{
-            background-color:#abd9e9;
-            font-family:Arial;
         }
         #container{
             width:250px;
@@ -73,7 +71,7 @@ if (isset($_POST['submit'])){
             font-size:12px;
             margin-top:2px;
             text-align:center;
-            color:#FFFFFF;
+            color:#ffff55;
         }
         main .inner_div{
             padding-left:0;
@@ -82,13 +80,12 @@ if (isset($_POST['submit'])){
             position:relative;
             overflow:auto;
             height:250px;
-            background-image:url(https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg);
             background-position:center;
             background-repeat:no-repeat;
             background-size:cover;
             position: relative;
-            border-top:1px solid #fff;
-            border-bottom:1px solid #fff;
+            border-top:1px solid #ffff55;
+            border-bottom:1px solid #2F353B;
         }
         main .triangle{
             width: 0;
@@ -176,20 +173,21 @@ if (isset($_POST['submit'])){
             font-size:5px;
             margin-bottom:6px;
             margin-left:50px;
-            color:white;
+
             text-align:center;
             background-color:black;
             border: 2px solid white;
         }
         }
         main footer textarea::placeholder{
-            color:#ddd;
+            color:#f1b0b7;
         }
 
     </style>
 <body onload="show_func()">
 <div id="container">
     <main>
+
         <header>
             <img src="www/sadaf/images/ico_star.png" alt="">
             <div>
@@ -283,20 +281,21 @@ if (isset($_POST['submit'])){
             <footer>
                 <table>
                     <tr>
-                        <th>
+                        <td>
+                            <input type="submit"
+                                   id="submit" name="submit" value="send">
+                        </td>
+                        <td>
                             <input  class="input1" type="text"
                                     id="uname" name="uname"
                                     placeholder="From">
-                        </th>
-                        <th>
+
+                        </td>
+                        <td>
             <textarea id="msg" name="msg"
                       rows='3' cols='50'
                       placeholder="Type your message">
-            </textarea></th>
-                        <th>
-                            <input class="input2" type="submit"
-                                   id="submit" name="submit" value="send">
-                        </th>
+            </textarea></td>
                     </tr>
                 </table>
             </footer>
