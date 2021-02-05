@@ -210,7 +210,7 @@ if (isset($_POST['submit'])){
                 <?php
                 $mysql = pdodb::getInstance();
 
-                $query = "SELECT * FROM chat";
+                $query = "SELECT * FROM sadaf.chat";
                 $run = $mysql->query($query);
                 $i=0;
 
@@ -219,66 +219,65 @@ if (isset($_POST['submit'])){
                         $i=5;
                         $first=$row;
                         ?>
-                        <div id="triangle1" class="triangle1"></div>
+                        <div id="triangle1" class="triangle1"></div>;
                         <div id="message1" class="message1">
- <span style="color:white;float:right;">
- <?php echo $row['msg']; ?></span> <br/>
-                            <div>
-   <span style="color:black;float:left;
-   font-size:5px;clear:both;">
-    <?php echo $row['userID']; ?>,
-        <?php echo $row['dt']; ?>
-   </span>
+                            <span style="color:white;float:right;">
+                            <?php echo $row['msg']; ?></span> <br/>
+                                                        <div>
+                            <span style="color:black;float:left;
+                            font-size:5px;clear:both;">
+                                <?php echo $row['userID']; ?>,
+                                    <?php echo $row['dt']; ?>
+                            </span>
+                                                        </div>
                             </div>
-                        </div>
-                        <br/><br/>
+                            <br/><br/>
                         <?php
                     }
                     else
                     {
                         if($row['userID']!=$first['userID'])
                         {
-                            ?>
-                            <div id="triangle" class="triangle"></div>
-                            <div id="message" class="message">
- <span style="color:white;float:left;">
-   <?php echo $row['msg']; ?>
- </span> <br/>
-                                <div>
-  <span style="color:black;float:right;
-          font-size:5px;clear:both;">
-  <?php echo $row['userID']; ?>,
-        <?php echo $row['dt']; ?>
- </span>
-                                </div>
-                            </div>
-                            <br/><br/>
-                            <?php
+                            
+                            echo "<div id=\"triangle\" class=\"triangle\"></div>";
+                            echo "<div id=\"message\" class=\"message\">";
+                           echo " <span style=\"color:white;float:left;\">";
+                           echo $row['msg']; 
+                          echo "</span> <br/>";
+                               echo "<div>";
+                            echo "<span style=\"color:black;float:right; font-size:5px;clear:both;\">";
+                            echo $row['userID']; 
+                            echo $row['dt'];
+                            echo "</span>";
+                               echo" </div>";
+                            echo"</div>";
+                            echo"<br/><br/>";
+                            
                         }
                         else
                         {
-                            ?>
-                            <div id="triangle1" class="triangle1"></div>
-                            <div id="message1" class="message1">
- <span style="color:white;float:right;">
-  <?php echo $row['msg']; ?>
- </span> <br/>
-                                <div>
- <span style="color:black;float:left;
-         font-size:5px;clear:both;">
- <?php echo $row['userID']; ?>,
-      <?php echo $row['dt']; ?>
- </span>
-                                </div>
-                            </div>
-                            <br/><br/>
-                            <?php
+                            
+                            echo "<div id=\"triangle1\" class=\"triangle1\"></div>";
+                            echo "<div id=\"message1\" class=\"message1\">";
+                            echo"<span style=\"color:white;float:right;\">";
+                            echo $row['msg'];
+                            echo"</span> <br/>";
+                                echo"<div>";
+                            echo "<span style=\"color:black;float:left;font-size:5px;clear:both;\">";
+                              echo $row['userID']; 
+                             echo $row['dt'];
+                             echo "</span>";
+                            echo"    </div>";
+                           echo" </div>";
+                           echo" <br/><br/>";
+
+                           
                         }
                     }
                 endwhile;
                 ?>
             </div>
-            <footer>
+           
                 <table>
                     <tr>
                         <td>
@@ -298,7 +297,7 @@ if (isset($_POST['submit'])){
             </textarea></td>
                     </tr>
                 </table>
-            </footer>
+          
         </form>
     </main>
 </div>
