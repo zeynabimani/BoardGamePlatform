@@ -101,7 +101,36 @@
     if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
         addtoDataBase($_REQUEST["Users"]);
     }
-    
+    $mysql = pdodb::getInstance();
+    if(isset($_REQUEST['exit'])){
+        $ExitU = "ch_" . $_SESSION["PersonID"];
+        if(isset($_REQUEST[$ExitU])){
+            $query3 = "update sadaf.room set status ='Empty' where (roomID= " . $_SESSION["id"] .")and (managerID=".$_SESSION["PersonID"].")";
+            $res3 = $mysql->Execute($query3);
+            $query3 = "delete from sadaf.game where roomID =".$_SESSION["id"];
+            $res3 = $mysql->Execute($query3);
+            $query3 = "delete from sadaf.game_request where roomID =".$_SESSION["id"];
+            $res3 = $mysql->Execute($query3);
+        }
+    }
+    $RoomState = "State_" . $_SESSION["PersonID"];
+    if(isset($_REQUEST[$RoomState])){
+        if($_REQUEST[$RoomState] == "1"){
+            $status = 'Accepting';
+        }
+        else if($_REQUEST[$RoomState] == "2"){
+            $status = 'Playing';
+        }
+        else{
+            $status = 'Empty';
+            $query3 = "delete from sadaf.game where roomID =".$_SESSION["id"];
+            $res3 = $mysql->Execute($query3);
+            $query3 = "delete from sadaf.game_request where roomID =".$_SESSION["id"];
+            $res3 = $mysql->Execute($query3);
+        }
+        $query3 = "update sadaf.room set status =\"".$status. "\"where (roomID= " . $_SESSION["id"] .")and (managerID=".$_SESSION["PersonID"].")";
+        $res3 = $mysql->Execute($query3);
+    }
     ?>
 
 
@@ -112,8 +141,18 @@
   <?php
   $isManager=isRoomManager();
   if($isManager===1){
-     
-     echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
+      echo "<input type=\"hidden\" name=\"exit\" value=\"1\">";
+      $ExitU = "ch_" . $_SESSION["PersonID"];
+      $RoomState = "State_" . $_SESSION["PersonID"];
+      echo "<div class=\"dropdown\">";
+      echo "<button class=\"dropbtn\">وضعیت اتاق</button>";
+      echo "<div class=\"dropdown-content\">";
+      echo "<button href=\"#\" value=\"1\" name=\"".$RoomState."\">در حال پذیرش</button>";
+      echo "<button href=\"#\" value=\"2\" name=\"".$RoomState."\">در حال بازی</button>";
+      echo "<button href=\"#\" value=\"3\" name=\"".$RoomState."\">خالی</button>";
+      echo "</div></div>";
+      echo  "<button type=\"submit\" class=\"btn btn-danger btn-sm\" value =\"true\" name=\"".$ExitU."\" >خروج </button>";
+      echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
   }
   elseif($isManager===0){
      
@@ -124,7 +163,54 @@
   ?>
  
  <!-- <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">Send Invitation to your Freinds</button>-->
+    <body>
+    <html>
+    <head>
+        <style>
+            /* Dropdown Button */
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px;
+                font-size: 14px;
+                border: none;
+            }
 
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                min-width: 10px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 10px 12px;
+                text-decoration: none;
+                display: block;
+            }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {background-color: #ddd;}
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {display: block;}
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {background-color: #3e8e41;}
+        </style>
+    </head>
+    <body>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
