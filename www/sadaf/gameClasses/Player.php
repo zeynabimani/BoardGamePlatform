@@ -104,10 +104,7 @@ class Player
 
 
     function buyTheCard(Card $card){
-        // first we should check cards player that how many tokens have (in cards->rant)
-//        if($this->orangeTokensStable != 0){
-//
-//        }
+
 
         if( $card->orangeTokens <= $this->orangeTokens + $this.$card->rant
             and $card->blueTokens <= $this->blueTokens
