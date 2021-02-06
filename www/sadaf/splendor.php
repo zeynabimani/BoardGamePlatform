@@ -7,11 +7,11 @@ include "gameClasses/Card.php";
 HTMLBegin();
 
 if(isset($_REQUEST["ChatSubmit"])){
-    $message= $_POST['message'];
-    $mysql = pdodb::getInstance();
-    $query = "insert into sadaf.chat (roomID, userID, msg) values (?,?,?)";
-    $mysql->Prepare($query);
-    $mysql->ExecuteStatement(array($_SESSION["id"], $_SESSION["PersonID"], $message));
+   $message= $_POST['message'];
+   $mysql = pdodb::getInstance();
+   $query = "insert into sadaf.chat (roomID, userID, msg) values (?,?,?)";
+   $mysql->Prepare($query);
+   $mysql->ExecuteStatement(array($_SESSION["id"], $_SESSION["PersonID"], $message));
 }
 
 $bankRedTokens = 7;
@@ -133,9 +133,6 @@ $flag = 0;
 //echo $cards[0]->imageLink;
 if(array_key_exists('btn1', $_POST)){
     function1($players, $turn);
-    $turn = $_SESSION['turn'];
-    $turn = ($turn++)%count($players);
-    $_SESSION['turn'] = $turn;
 }
 
 function function1($array, $tu)
@@ -159,9 +156,6 @@ function function1($array, $tu)
 
 if(array_key_exists('btn2', $_POST)){
     function2($players, $turn);
-    $turn = $_SESSION['turn'];
-    $turn = ($turn++)%count($players);
-    $_SESSION['turn'] = $turn;
 }
 
 function function2($array, $tu)
@@ -200,14 +194,6 @@ if(array_key_exists('image1', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
 
 if(array_key_exists('image2', $_REQUEST)){
@@ -218,14 +204,6 @@ if(array_key_exists('image2', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
-    }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
     }
 //    $counter++;
 //    echo $imageSelectedId;
@@ -244,14 +222,6 @@ if(array_key_exists('image3', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 
 }
 
@@ -263,14 +233,6 @@ if(array_key_exists('image4', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
 
 if(array_key_exists('image5', $_REQUEST)){
@@ -280,14 +242,6 @@ if(array_key_exists('image5', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
-    }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
     }
 }
 
@@ -299,14 +253,6 @@ if(array_key_exists('image6', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
 
 if(array_key_exists('image7', $_REQUEST)){
@@ -316,14 +262,6 @@ if(array_key_exists('image7', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
-    }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
     }
 }
 
@@ -335,14 +273,6 @@ if(array_key_exists('image8', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
 
 if(array_key_exists('image9', $_REQUEST)){
@@ -352,14 +282,6 @@ if(array_key_exists('image9', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
-    }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
     }
 }
 
@@ -371,14 +293,6 @@ if(array_key_exists('image10', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
 
 if(array_key_exists('image11', $_REQUEST)){
@@ -388,14 +302,6 @@ if(array_key_exists('image11', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
-    }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
     }
 }
 
@@ -407,14 +313,6 @@ if(array_key_exists('image12', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
 
 if(array_key_exists('image13', $_REQUEST)){
@@ -425,14 +323,6 @@ if(array_key_exists('image13', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
 if(array_key_exists('image14', $_REQUEST)){
     $imageSelectedId = $cards[$cardPrince+3]->id;
@@ -442,16 +332,7 @@ if(array_key_exists('image14', $_REQUEST)){
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
     }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
-    }
 }
-
 if(array_key_exists('image15', $_REQUEST)){
     $imageSelectedId = $cards[$cardPrince+3]->id;
     $_SESSION['imageSelectedId'] = $imageSelectedId;
@@ -459,14 +340,6 @@ if(array_key_exists('image15', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
-    }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
     }
 }
 
@@ -477,14 +350,6 @@ if(array_key_exists('image16', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
-    }
-    if(array_key_exists('btn4', $_POST)) {
-        $imageSelectedId = $_SESSION['imageSelectedId'];
-        $players[$turn]->buyTheCard($cards[$imageSelectedId]);
-        $_SESSION['imageSelectedId'] = $imageSelectedId;
-        $turn = $_SESSION['turn'];
-        $turn = ($turn++)%count($players);
-        $_SESSION['turn'] = $turn;
     }
 }
 
@@ -579,9 +444,16 @@ function addtoDataBase($v){
             $idNew=$persons[$s][0];
         }
     }
-    $query = "insert into sadaf.game_request (roomID, userID, status)
+    $query3="select * from sadaf.game_request";
+    $res3 = $mysql->Execute($query3);
+    while($rec3 = $res3->fetch()){
+        if(($rec3["roomID"]!=$_SESSION["id"])&&($rec3["userID"]!=$idNew)){
+            $query = "insert ignore into sadaf.game_request (roomID, userID, status)
                 values (".$_SESSION["id"].",".$idNew.", 'Waiting');";
-    $mysql->Execute($query);
+            $mysql->Execute($query);
+        }
+
+    }
 
 
 
@@ -593,85 +465,10 @@ function addtoDataBase($v){
 if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
     addtoDataBase($_REQUEST["Users"]);
 }
-$mysql = pdodb::getInstance();
-if(isset($_REQUEST['exit'])){
-    $ExitU = "ch_" . $_SESSION["PersonID"];
-    if(isset($_REQUEST[$ExitU])){
-        $query3 = "update sadaf.room set status ='Empty' where (roomID= " . $_SESSION["id"] .")and (managerID=".$_SESSION["PersonID"].")";
-        $res3 = $mysql->Execute($query3);
-        $query3 = "delete from sadaf.game where roomID =".$_SESSION["id"];
-        $res3 = $mysql->Execute($query3);
-        $query3 = "delete from sadaf.game_request where roomID =".$_SESSION["id"];
-        $res3 = $mysql->Execute($query3);
-    }
-}
-$RoomState = "State_" . $_SESSION["PersonID"];
-if(isset($_REQUEST[$RoomState])){
-    if($_REQUEST[$RoomState] == "1"){
-        $status = 'Accepting';
-    }
-    else if($_REQUEST[$RoomState] == "2"){
-        $status = 'Playing';
-    }
-    else{
-        $status = 'Empty';
-        $query3 = "delete from sadaf.game where roomID =".$_SESSION["id"];
-        $res3 = $mysql->Execute($query3);
-        $query3 = "delete from sadaf.game_request where roomID =".$_SESSION["id"];
-        $res3 = $mysql->Execute($query3);
-    }
-    $query3 = "update sadaf.room set status =\"".$status. "\"where (roomID= " . $_SESSION["id"] .")and (managerID=".$_SESSION["PersonID"].")";
-    $res3 = $mysql->Execute($query3);
-}
+
 ?>
 
-<html>
-<head>
-    <style>
-        /* Dropdown Button */
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            font-size: 14px;
-            border: none;
-        }
 
-        /* The container <div> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 10px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: black;
-            padding: 10px 12px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {background-color: #ddd;}
-
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {display: block;}
-
-        /* Change the background color of the dropdown button when the dropdown content is shown */
-        .dropdown:hover .dropbtn {background-color: #3e8e41;}
-    </style>
-</head>
-<body>
 <form method="POST" >
     <div class="container">
 
@@ -679,18 +476,7 @@ if(isset($_REQUEST[$RoomState])){
         <?php
         $isManager=isRoomManager();
         if($isManager===1){
-            echo "<input type=\"hidden\" name=\"exit\" value=\"1\">";
-            $ExitU = "ch_" . $_SESSION["PersonID"];
-            $RoomState = "State_" . $_SESSION["PersonID"];
-            echo "<div class=\"dropdown\">";
-            echo "<button class=\"dropbtn\">وضعیت اتاق</button>";
-            echo "<div class=\"dropdown-content\">";
-            echo "<button href=\"#\" value=\"1\" name=\"".$RoomState."\">در حال پذیرش</button>";
-            echo "<button href=\"#\" value=\"2\" name=\"".$RoomState."\">در حال بازی</button>";
-            echo "<button href=\"#\" value=\"3\" name=\"".$RoomState."\">خالی</button>";
-            echo "</div></div>";
-            echo  "<button type=\"submit\" class=\"btn btn-danger btn-sm\" value =\"true\" name=\"".$ExitU."\" >خروج </button>";
-            echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
+
             echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
         }
         elseif($isManager===0){
@@ -863,8 +649,8 @@ if(isset($_REQUEST[$RoomState])){
                 <td><button name="btn1">انتخاب 1</button></td>
                 <td><button name="btn2">انتخاب 2</button></td>
                 <td><button name="btn3">انتخاب 3</button></td>
-                <td><button name="btn4">انتخاب 4</button></td>
-                <td><button name="btn5">انتخاب 5</button></td>
+                <td><button>انتخاب 4</button></td>
+                <td><button>انتخاب 5</button></td>
             </tr>
             <tr>
                 <?php
@@ -940,4 +726,3 @@ if(isset($_REQUEST[$RoomState])){
         </div>
     </div>
 </form>
-</body>
