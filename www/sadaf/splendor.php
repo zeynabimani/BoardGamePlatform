@@ -196,14 +196,22 @@ if(array_key_exists('image1', $_REQUEST)){
     $_SESSION['imageSelectedId'] = $imageSelectedId;
     if(array_key_exists('btn3', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
-//        echo $imageSelectedId;
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -218,11 +226,20 @@ if(array_key_exists('image2', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -243,11 +260,20 @@ if(array_key_exists('image3', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -262,11 +288,20 @@ if(array_key_exists('image4', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -280,11 +315,20 @@ if(array_key_exists('image5', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -298,11 +342,20 @@ if(array_key_exists('image6', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -316,11 +369,20 @@ if(array_key_exists('image7', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -334,11 +396,20 @@ if(array_key_exists('image8', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardTwo = $_SESSION['cardTwo'];
+        $cardTwo++;
+        $_SESSION['cardTwo'] = $cardTwo;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -352,11 +423,20 @@ if(array_key_exists('image9', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -370,11 +450,20 @@ if(array_key_exists('image10', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -388,11 +477,20 @@ if(array_key_exists('image11', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -406,11 +504,20 @@ if(array_key_exists('image12', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardThree = $_SESSION['cardThree'];
+        $cardThree++;
+        $_SESSION['cardThree'] = $cardThree;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -424,11 +531,20 @@ if(array_key_exists('image13', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -441,11 +557,20 @@ if(array_key_exists('image14', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -459,11 +584,20 @@ if(array_key_exists('image15', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
@@ -477,11 +611,20 @@ if(array_key_exists('image16', $_REQUEST)){
         $imageSelectedId = $_SESSION['imageSelectedId'];
         function3($players, $turn, $imageSelectedId, $cards);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
+        $turn = $_SESSION['turn'];
+        $turn = ($turn++)%count($players);
+        $_SESSION['turn'] = $turn;
     }
     if(array_key_exists('btn4', $_POST)) {
         $imageSelectedId = $_SESSION['imageSelectedId'];
         $players[$turn]->buyTheCard($cards[$imageSelectedId]);
         $_SESSION['imageSelectedId'] = $imageSelectedId;
+        $cardPrince = $_SESSION['cardPrince'];
+        $cardPrince++;
+        $_SESSION['cardPrince'] = $cardPrince;
         $turn = $_SESSION['turn'];
         $turn = ($turn++)%count($players);
         $_SESSION['turn'] = $turn;
