@@ -5,7 +5,7 @@ class Card
 {
 
     public $id, $orangeTokens=0, $blueTokens=0, $greenTokens=0, $darkBlueTokens=0,
-           $pinkTokens=0, $goldenTokens=0, $score=0, $type, $imageLink;
+        $pinkTokens=0, $goldenTokens=0, $score=0, $type, $imageLink,$rant;
 
     /**
      * Card constructor.
@@ -20,7 +20,8 @@ class Card
      * @param $type
      * @param $imageLink
      */
-    public function __construct($id, $orangeTokens, $blueTokens, $greenTokens, $darkBlueTokens, $pinkTokens, $goldenTokens, $score, $type, $imageLink)
+    public function __construct($id, $orangeTokens, $blueTokens, $greenTokens, $darkBlueTokens, $pinkTokens,
+                                $goldenTokens, $score, $type, $imageLink,$rant)
     {
         $this->id = $id;
         $this->orangeTokens = $orangeTokens;
@@ -32,6 +33,7 @@ class Card
         $this->score = $score;
         $this->type = $type;
         $this->imageLink = $imageLink;
+        $this->rant = $rant;
     }
 
 }

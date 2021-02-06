@@ -80,9 +80,17 @@
                 $idNew=$persons[$s][0];
             }
         }
-        $query = "insert into sadaf.game_request (roomID, userID, status)
-        values (".$_SESSION["id"].",".$idNew.", 'Waiting');";
-        $mysql->Execute($query); 
+        $query3="select * from sadaf.game_request";
+        $res3 = $mysql->Execute($query3); 
+        while($rec3 = $res3->fetch()){
+            if(($rec3["roomID"]!=$_SESSION["id"])&&($rec3["userID"]!=$idNew)){
+                $query = "insert ignore into sadaf.game_request (roomID, userID, status)
+                values (".$_SESSION["id"].",".$idNew.", 'Waiting');";
+                $mysql->Execute($query); 
+            }
+           
+        }
+        
      
         
     }

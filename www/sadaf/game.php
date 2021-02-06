@@ -2,6 +2,7 @@
 include "header.inc.php";
 HTMLBegin();
 
+
 if(isset($_REQUEST["EnterRoom"])){
     $mysql = pdodb::getInstance();
     $query = "select * from sadaf.room where roomID < 100";
@@ -9,26 +10,17 @@ if(isset($_REQUEST["EnterRoom"])){
     while($rec = $res->fetch()){
         $ChGameID = "ch_" . $rec["roomID"]; 
         $IdGame=$rec["roomID"];
-       
-
-        if( $rec["managerID"]=="" && isset($_REQUEST[$ChGameID])){
-            $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
-            $res = $mysql->Execute($query);
-
-            $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
-            $mysql->Prepare($query2);
-            $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
-            $action ="GameRoom.php";   
-           
-            
-        }
-        elseif(isset($_REQUEST[$ChGameID])){   
-            $action ="GameRoom.php"; 
+        if(isset($_REQUEST[$ChGameID])){    
+            if($rec["managerID"]==""){
+                $query = "update sadaf.room set managerID = " . $_SESSION["PersonID"] . " where roomID= " . $rec["roomID"];
+                $res = $mysql->Execute($query);
+                $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
+                $mysql->Prepare($query2);
+                $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"]));
+            }
+            $action ="splendor.php"; 
             $_SESSION["id"]=$IdGame;
-            
         }
-        
-        
     }
 }
 ?>
@@ -46,8 +38,8 @@ function getRoomStatus(){
 }
 
 ?> 
-
-<form method="POST" action= "<?php echo $action; ?>">
+	
+<form method="POST" action= "<?php echo $action ?>">
     <input type="hidden" name="EnterRoom" value="1">
     <table class="table table-sm table-bordered table-striped">
         <tr>
@@ -75,29 +67,34 @@ function getRoomStatus(){
                 while($rec2 = $res2->fetch()){
                     $admin =  $rec2["UserID"];
                 }
-                if($_SESSION["PersonID"] != $rec["managerID"])
-                    $disabled = "disabled";
+                if($_SESSION["PersonID"] != $rec["managerID"]){
+                    $sw = 1;
+                    $query2 = "select * from sadaf.game_request where userID = " . $_SESSION["PersonID"];
+                    $res2 = $mysql->Execute($query2); 
+                    while($rec2 = $res2->fetch()){
+                        if($rec2["roomID"] == $rec["roomID"]){
+                            if($rec2["status"] == "Accepted")
+                                $sw = 0;
+                        }
+                    }
+                    if($sw == 1)
+                        $disabled = "disabled";
+                }
                 echo  "<td>" . $admin . "</td>";
             }
             echo  "<td>" . $rec["status"] . "</td>";
             $ChGameID = "ch_" . $rec["roomID"]; 
             
-            // $isMem = getRoomStatus();
-            // if($isMem != -1)
-            //     if ($isMem != $rec["roomID"])
-            //         $disabled = "disabled";
-            
             echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"" . $disabled . "></td>";
-            //echo "<td><input type=\"submit\" class=\"btn btn-success btn-sm\" name=\"" .  $ChGameID . "\" value=\"ورود\"></td>";
         
             $query2 = "select * from sadaf.game where roomID = " . $rec["roomID"];
             $res2 = $mysql->Execute($query2);
             $members = "";
             while($rec2 = $res2->fetch()){
                 $query3 = "select UserID from sadaf.accountspecs where PersonID = " . $rec2["userID"];
-                $res3 = $mysql->Execute($query2);
-                while($rec2 = $res2->fetch()){
-                    $admin =  $rec2["UserID"];
+                $res3 = $mysql->Execute($query3);
+                while($rec3 = $res3->fetch()){
+                    $admin =  $rec3["UserID"];
                 }
                 $members = $members . " " . $admin;
             }
