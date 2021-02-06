@@ -182,17 +182,181 @@ function function2($array, $tu)
     }
 }
 
-if(array_key_exists('btn3', $_POST)){
-    function3($players, $turn, $imageSelectedId, $cards);
-//    $cardOne = $_SESSION['cardOne'];
-//    $cardOne++;
-//    $_SESSION['cardOne']= $cardOne;
+if(array_key_exists('image1', $_REQUEST)){
+//    echo "aa";
+//    $imageSelectedId = $_SESSION['imageSelectedId'];
+    $imageSelectedId = $cards[$cardOne]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+//        echo $imageSelectedId;
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
 }
+
+if(array_key_exists('image2', $_REQUEST)){
+//    $imageSelectedId = $_SESSION['imageSelectedId'];
+    $imageSelectedId = $cards[$cardOne+1]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+//    $counter++;
+//    echo $imageSelectedId;
+//    function3($players, $turn, $imageSelectedId, $cards);
+}
+
+if(array_key_exists('image3', $_REQUEST)){
+//    $imageSelectedId = $_SESSION['imageSelectedId'];
+    $imageSelectedId = $cards[$cardOne+2]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $cardOne = $_SESSION['cardOne'];
+        $cardOne++;
+        $_SESSION['cardOne'] = $cardOne;
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+
+}
+
+if(array_key_exists('image4', $_REQUEST)){
+    $imageSelectedId = $cards[$cardOne+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image5', $_REQUEST)){
+    $imageSelectedId = $cards[$cardTwo+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image6', $_REQUEST)){
+    $imageSelectedId = $cards[$cardTwo+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image7', $_REQUEST)){
+    $imageSelectedId = $cards[$cardTwo+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image8', $_REQUEST)){
+    $imageSelectedId = $cards[$cardTwo+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image9', $_REQUEST)){
+    $imageSelectedId = $cards[$cardThree+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image10', $_REQUEST)){
+    $imageSelectedId = $cards[$cardThree+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image11', $_REQUEST)){
+    $imageSelectedId = $cards[$cardThree+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image12', $_REQUEST)){
+    $imageSelectedId = $cards[$cardThree+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image13', $_REQUEST)){
+    $imageSelectedId = $cards[$cardPrince+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+if(array_key_exists('image14', $_REQUEST)){
+    $imageSelectedId = $cards[$cardPrince+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+if(array_key_exists('image15', $_REQUEST)){
+    $imageSelectedId = $cards[$cardPrince+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
+if(array_key_exists('image16', $_REQUEST)){
+    $imageSelectedId = $cards[$cardPrince+3]->id;
+    $_SESSION['imageSelectedId'] = $imageSelectedId;
+    if(array_key_exists('btn3', $_POST)) {
+        $imageSelectedId = $_SESSION['imageSelectedId'];
+        function3($players, $turn, $imageSelectedId, $cards);
+        $_SESSION['imageSelectedId'] = $imageSelectedId;
+    }
+}
+
 
 function function3($array, $tu, $cardId, $cards)
 {
-    echo $cardId;
     $array[$tu]->reserveACard($cards[$cardId]);
+//    echo $cardId;
 }
 
 function imageClick($imageSelectedId,$cards, $cardOne, $counter){
@@ -205,47 +369,47 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
 }
 ?>
 <?php
-     function isRoomManager(){
-        $isManager=0;
-        $mysql = pdodb::getInstance();
-        $query = "select * from sadaf.room where roomID = " . $_SESSION["id"];
-        $res = $mysql->Execute($query); 
-       while($rec = $res->fetch()){
-           if($_SESSION["PersonID"]===$rec["managerID"]){
-            
-              $isManager=1;
-               
-    
-          }
-       }
-        
-        return $isManager;
-    }
-    function getPersons(){
-        $results= array();
-        $persons=array();
-        $i=0;
-        $mysql = pdodb::getInstance();
-        $query = "select * from sadaf.game where roomID = " . $_SESSION["id"];
-        $query2 = "select * from sadaf.accountspecs";
-        $res2 = $mysql->Execute($query2); 
-        while($rec2 = $res2->fetch()){
-            $persons[$i]=array($rec2["PersonID"],$rec2["UserID"]);
-            $i=$i+1;
+function isRoomManager(){
+    $isManager=0;
+    $mysql = pdodb::getInstance();
+    $query = "select * from sadaf.room where roomID = " . $_SESSION["id"];
+    $res = $mysql->Execute($query);
+    while($rec = $res->fetch()){
+        if($_SESSION["PersonID"]===$rec["managerID"]){
+
+            $isManager=1;
+
 
         }
-         $copypersons=$persons;
-        $res = $mysql->Execute($query); 
-       while($rec = $res->fetch()){
+    }
+
+    return $isManager;
+}
+function getPersons(){
+    $results= array();
+    $persons=array();
+    $i=0;
+    $mysql = pdodb::getInstance();
+    $query = "select * from sadaf.game where roomID = " . $_SESSION["id"];
+    $query2 = "select * from sadaf.accountspecs";
+    $res2 = $mysql->Execute($query2);
+    while($rec2 = $res2->fetch()){
+        $persons[$i]=array($rec2["PersonID"],$rec2["UserID"]);
+        $i=$i+1;
+
+    }
+    $copypersons=$persons;
+    $res = $mysql->Execute($query);
+    while($rec = $res->fetch()){
         for($j=0;$j<count($persons);$j++){
             $is_recognize=false;
-           if($persons[$j][0]===$rec["userID"]&& $is_recognize==false){
-            unset($copypersons[$j]);
-            $is_recognize=true;
-               
-    
-          }
-       }
+            if($persons[$j][0]===$rec["userID"]&& $is_recognize==false){
+                unset($copypersons[$j]);
+                $is_recognize=true;
+
+
+            }
+        }
     }
     $copypersons=array_values($copypersons);
     $results=$copypersons;
@@ -257,113 +421,113 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
 
     }
     return $stOptions;
+}
+
+
+?>
+<?php
+function addtoDataBase($v){
+    $isManager=0;
+    $i=0;
+    $persons=array();
+    $mysql = pdodb::getInstance();
+    $query2 = "select * from sadaf.accountspecs";
+    $res2 = $mysql->Execute($query2);
+    while($rec2 = $res2->fetch()){
+        $persons[$i]=array($rec2["PersonID"],$rec2["UserID"]);
+        $i=$i+1;
+
     }
-
-
-    ?>
-    <?php
-     function addtoDataBase($v){
-        $isManager=0;
-        $i=0;
-        $persons=array();
-        $mysql = pdodb::getInstance();
-        $query2 = "select * from sadaf.accountspecs";
-        $res2 = $mysql->Execute($query2); 
-        while($rec2 = $res2->fetch()){
-            $persons[$i]=array($rec2["PersonID"],$rec2["UserID"]);
-            $i=$i+1;
-
+    for($s=0;$s<count($persons);$s++){
+        if($persons[$s][1]===$v){
+            $idNew=$persons[$s][0];
         }
-        for($s=0;$s<count($persons);$s++){
-            if($persons[$s][1]===$v){
-                $idNew=$persons[$s][0];
-            }
-        }
-        $query3="select * from sadaf.game_request";
-        $res3 = $mysql->Execute($query3); 
-        while($rec3 = $res3->fetch()){
-            if(($rec3["roomID"]!=$_SESSION["id"])&&($rec3["userID"]!=$idNew)){
-                $query = "insert ignore into sadaf.game_request (roomID, userID, status)
+    }
+    $query3="select * from sadaf.game_request";
+    $res3 = $mysql->Execute($query3);
+    while($rec3 = $res3->fetch()){
+        if(($rec3["roomID"]!=$_SESSION["id"])&&($rec3["userID"]!=$idNew)){
+            $query = "insert ignore into sadaf.game_request (roomID, userID, status)
                 values (".$_SESSION["id"].",".$idNew.", 'Waiting');";
-                $mysql->Execute($query); 
-            }
-           
+            $mysql->Execute($query);
         }
-        
-     
-        
+
     }
-    
-      
-    ?>
-    <?php
-    if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
-        addtoDataBase($_REQUEST["Users"]);
-    }
-    
-    ?>
+
+
+
+}
+
+
+?>
+<?php
+if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
+    addtoDataBase($_REQUEST["Users"]);
+}
+
+?>
 
 
 <form method="POST" >
-<div class="container">
-  
-  <!-- Trigger the modal with a button -->
-  <?php
-  $isManager=isRoomManager();
-  if($isManager===1){
-     
-     echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
-  }
-  elseif($isManager===0){
-     
-      $disabled="disabled";
-    echo " <button type=\"button\" class=\"btn btn-success btn-sm\"".$disabled.">Send Invitation to your Freinds</button>" ;
+    <div class="container">
 
-  }
-  ?>
+        <!-- Trigger the modal with a button -->
+        <?php
+        $isManager=isRoomManager();
+        if($isManager===1){
 
-<div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header align-right DivRtl">
-         <h4 class="modal-title ">ارسال دعوت نامه</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
+            echo " <button type=\"button\" class=\"btn btn-success btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\">Send Invitation to your Freinds</button>" ;
+        }
+        elseif($isManager===0){
+
+            $disabled="disabled";
+            echo " <button type=\"button\" class=\"btn btn-success btn-sm\"".$disabled.">Send Invitation to your Freinds</button>" ;
+
+        }
+        ?>
+
+        <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header align-right DivRtl">
+                        <h4 class="modal-title ">ارسال دعوت نامه</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <p> انتخاب لیست کاربران</p>
+                                <hr>
+                                <table class="table table-sm table-stripped table-bordered">
+                                    <tr>
+
+                                        <td>
+                                            <select class="form-control sadaf-m-input" name="Users" id="Persons">
+                                                <option value=0>-
+                                                    <? echo getPersons();?>
+
+                                        </td>
+                                        <td>
+                                            <input type="submit" name="ersal" class="btn btn-primary" value="Send">
+                                        </td>
+                                    </tr>
+                                    </select>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer DivRtl">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="modal-body">
-        <div class="row">
-		<div class="col">
-          <p> انتخاب لیست کاربران</p>
-          <hr>
-          <table class="table table-sm table-stripped table-bordered">
-          <tr>
-					
-			<td>
-            <select class="form-control sadaf-m-input" name="Users" id="Persons">
-            <option value=0>-
-            <? echo getPersons();?>
-           
-        </td>
-        <td>
-        <input type="submit" name="ersal" class="btn btn-primary" value="Send">
-        </td>
-        </tr>
-        </select>
-          </table>
-        </div>
-        </div>
-        </div>
-        <div class="modal-footer DivRtl">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
+
     </div>
-  </div>          
-  
-</div>   
 </form>
 
 <script src="JsFile.js"></script>
@@ -372,163 +536,174 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
     <input type="hidden" name="ChatSubmit" value="1">
     <div style="display:flex; flex-direction:row">
         <table class="table table-sm table-bordered table-striped" style="width:80%">
-        <tr>
-            <td>انتخاب ۳ الماس </td>
-            <td>انتخاب ۲ الماس همرنگ</td>
-            <td>رزرو یک کارت پیشرفت و دریافت ۱ الماس طلا</td>
-            <td>خرید یکی از کارت‌های وسط میز</td>
-            <td>خرید یکی از کارت‌هایی که رزرو کرده</td>
-        </tr>
-        <tr>
-            <td>
-                <table >
-                    <tr>
-                        <td>orange</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
-                        <td><input type="checkbox" name="orange" id="orange" onclick="select1(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>blue</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
-                        <td><input type="checkbox" name="blue" id="blue" onclick="select1(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>green</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
-                        <td><input type="checkbox" name="green" id="green" onclick="select1(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>dark blue</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
-                        <td><input type="checkbox" name="darkBlue" id="darkBlue" onclick="select1(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>pink</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
-                        <td><input type="checkbox" name="pink" id="pink" onclick="select1(this.id)"></td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table >
-                    <tr>
-                        <td>orange</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
-                        <td><input type="checkbox" name="orange" id="orange1"  onclick="select2(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>blue</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
-                        <td><input type="checkbox" name="blue" id="blue1" onclick="select2(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>green</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
-                        <td><input type="checkbox" name="green" id="green1" onclick="select2(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>dark blue</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
-                        <td><input type="checkbox" name="darkBlue" id="darkblue1" onclick="select2(this.id)"></td>
-                    </tr>
-                    <tr>
-                        <td>pink</td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
-                        <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
-                        <td><input type="checkbox" name="pink" id="pink1" onclick="select2(this.id)"></td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tr>
-                        <td>
-                            reserve one card
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img id= "img_fraction" style="width:5vw;" src="images/tokens/gold2.png" >
-                        </td>
-                    </tr>
-                </table>
-            </td>
+            <tr>
+                <td>انتخاب ۳ الماس </td>
+                <td>انتخاب ۲ الماس همرنگ</td>
+                <td>رزرو یک کارت پیشرفت و دریافت ۱ الماس طلا</td>
+                <td>خرید یکی از کارت‌های وسط میز</td>
+                <td>خرید یکی از کارت‌هایی که رزرو کرده</td>
+            </tr>
+            <tr>
+                <td>
+                    <table >
+                        <tr>
+                            <td>orange</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
+                            <td><input type="checkbox" name="orange" id="orange" onclick="select1(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>blue</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
+                            <td><input type="checkbox" name="blue" id="blue" onclick="select1(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>green</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
+                            <td><input type="checkbox" name="green" id="green" onclick="select1(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>dark blue</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
+                            <td><input type="checkbox" name="darkBlue" id="darkBlue" onclick="select1(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>pink</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
+                            <td><input type="checkbox" name="pink" id="pink" onclick="select1(this.id)"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table >
+                        <tr>
+                            <td>orange</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/orange2.png" ></td>
+                            <td><input type="checkbox" name="orange" id="orange1"  onclick="select2(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>blue</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/blue2.png" ></td>
+                            <td><input type="checkbox" name="blue" id="blue1" onclick="select2(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>green</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/green2.png" ></td>
+                            <td><input type="checkbox" name="green" id="green1" onclick="select2(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>dark blue</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/dark_blue2.png" ></td>
+                            <td><input type="checkbox" name="darkBlue" id="darkblue1" onclick="select2(this.id)"></td>
+                        </tr>
+                        <tr>
+                            <td>pink</td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
+                            <td><img id= "img_fraction" style="width:2vw;" src="images/tokens/pink2.png" ></td>
+                            <td><input type="checkbox" name="pink" id="pink1" onclick="select2(this.id)"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                reserve one card
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id= "img_fraction" style="width:5vw;" src="images/tokens/gold2.png" >
+                            </td>
+                        </tr>
+                    </table>
+                </td>
 
-            <td>
-                <table>
-                    <tr>
-                        <td>
-                            buy one card
-                        </td>
-                    </tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                buy one card
+                            </td>
+                        </tr>
 
-                </table>
-            </td>
+                    </table>
+                </td>
 
-            <td>
-                <table>
-                    <tr>
-                        <td>
-                            buy reserved card
-                        </td>
-                    </tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                buy reserved card
+                            </td>
+                        </tr>
 
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td><button name="btn1">انتخاب 1</button></td>
-            <td><button name="btn2">انتخاب 2</button></td>
-            <td><button name="btn3">انتخاب 3</button></td>
-            <td><button>انتخاب 4</button></td>
-            <td><button>انتخاب 5</button></td>
-        </tr>
-        <tr>
-            <?php
-            echo "<td><img name='image' style='width:10vw;' onclick='".imageClick($imageSelectedId,$cards, $cardOne, 0)."' src='".$cards[$cardOne]->imageLink."'></td>";
-            echo "<td><img name='image' style='width:10vw;' onclick='".imageClick($imageSelectedId,$cards, $cardOne,1)."' src='".$cards[$cardOne+1]->imageLink."'></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".imageClick($imageSelectedId,2)."' src='".$cards[$cardOne+2]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardOne+3]->id."' src='".$cards[$cardOne+3]->imageLink."' ></td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo]->id."' src='".$cards[$cardTwo]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo+1]->id."' src='".$cards[$cardTwo+1]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo+2]->id."' src='".$cards[$cardTwo+2]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' onclick='".$imageSelectedId."' = '".$cards[$cardTwo+3]->id."' src='".$cards[$cardTwo+3]->imageLink."' ></td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+1]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+2]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+3]->imageLink."' ></td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince+1]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince]->imageLink."' ></td>";
-            echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince]->imageLink."' ></td>";
-            echo "</tr>";
-            //            echo "<tr>";
-            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/17.png' ></td>";
-            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/18.png' ></td>";
-            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/19.png' ></td>";
-            //            echo "<td><img id= 'img_fraction' style='width:10vw;' src='images/our/cards/1/20.png' ></td>";
-            //            echo "</tr>";
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><button name="btn1">انتخاب 1</button></td>
+                <td><button name="btn2">انتخاب 2</button></td>
+                <td><button name="btn3">انتخاب 3</button></td>
+                <td><button>انتخاب 4</button></td>
+                <td><button>انتخاب 5</button></td>
+            </tr>
+            <tr>
+                <?php
+                echo "<td><img  style='width:10vw;'  src='".$cards[$cardOne]->imageLink."'>";
+                echo "<input type='checkbox' name='image1'></td>";
+                echo "<td><img  style='width:10vw;'  src='".$cards[$cardOne+1]->imageLink."'>";
+                echo "<input type='checkbox' name='image2'></td>";
+                //            echo $imageSelectedId;
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardOne+2]->imageLink."' >";
+                echo "<input type='checkbox' name='image3'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardOne+3]->imageLink."' >";
+                echo "<input type='checkbox' name='image4'></td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardTwo]->imageLink."' >";
+                echo "<input type='checkbox' name='image5'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardTwo+1]->imageLink."' >";
+                echo "<input type='checkbox' name='image6'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardTwo+2]->imageLink."' >";
+                echo "<input type='checkbox' name='image7'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardTwo+3]->imageLink."' >";
+                echo "<input type='checkbox' name='image8'></td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree]->imageLink."' >";
+                echo "<input type='checkbox' name='image9'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+1]->imageLink."' >";
+                echo "<input type='checkbox' name='image10'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+2]->imageLink."' >";
+                echo "<input type='checkbox' name='image11'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardThree+3]->imageLink."' >";
+                echo "<input type='checkbox' name='image12'></td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince]->imageLink."' >";
+                echo "<input type='checkbox' name='image13'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince+1]->imageLink."' >";
+                echo "<input type='checkbox' name='image14'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince+2]->imageLink."' >";
+                echo "<input type='checkbox' name='image15'></td>";
+                echo "<td><img id= 'img_fraction' style='width:10vw;' src='".$cards[$cardPrince+3]->imageLink."' >";
+                echo "<input type='checkbox' name='image16'></td>";
+                echo "</tr>";
 
-            ?>
-    </table>
-    <div style="width:20%; display:flex; flex-direction:column; border:2px solid black">
+                ?>
+        </table>
+        <div style="width:20%; display:flex; flex-direction:column; border:2px solid black">
             <div style="height:90%; ">
                 <table class="table table-sm table-bordered table-striped">
                     <tr>
                         <th>نام</th>
-                        <th>پيام</th> 
+                        <th>پيام</th>
                     </tr>
-                <?php
+                    <?php
                     $mysql = pdodb::getInstance();
                     $query = "select * from sadaf.chat where roomID < " . $_SESSION["id"];
                     $res = $mysql->Execute($query);
@@ -541,7 +716,7 @@ function imageClick($imageSelectedId,$cards, $cardOne, $counter){
                         echo  "<tr><td>" . $writer . "</td>";
                         echo  "<td>" . $rec["msg"] . "</td></tr>";
                     }
-                ?>
+                    ?>
                 </table>
             </div>
             <textarea id="message" name="message" placeholder="Type Your Message">
