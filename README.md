@@ -17,3 +17,5 @@ Add these files as a `Operation Work` or `عمليات كاري`:
 *  `waitingRoom.php`
  
 Open `query.php` and copy the codes into the `game.php` file and run it just one time so that it makes the initial game rooms. Remove the code after one time running.
+
+**Note:** Please click the buttons two times for `enter` or `exit` the game room.
