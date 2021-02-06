@@ -747,6 +747,7 @@ if(isset($_REQUEST['exit'])){
         $query3 = "delete from sadaf.game_request where roomID =".$_SESSION["id"];
         $res3 = $mysql->Execute($query3);
     }
+    $action = "game.php";
 }
 $RoomState = "State_" . $_SESSION["PersonID"];
 if(isset($_REQUEST[$RoomState])){
@@ -815,7 +816,7 @@ if(isset($_REQUEST[$RoomState])){
     </style>
 </head>
 <body>
-<form method="POST" >
+<form method="POST" action= "<?php echo $action ?>">
     <div class="container">
 
         <!-- Trigger the modal with a button -->
