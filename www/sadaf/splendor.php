@@ -6,13 +6,13 @@ include "gameClasses/Card.php";
 
 HTMLBegin();
 
-if(isset($_REQUEST["ChatSubmit"])){
-    $message= $_POST['message'];
-    $mysql = pdodb::getInstance();
-    $query = "insert into sadaf.chat (roomID, userID, msg) values (?,?,?)";
-    $mysql->Prepare($query);
-    $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"], $message));
-}
+//if(isset($_REQUEST["ChatSubmit"])){
+//    $message= $_POST['message'];
+//    $mysql = pdodb::getInstance();
+//    $query = "insert into sadaf.chat (roomID, userID, msg) values (?,?,?)";
+//    $mysql->Prepare($query);
+//    $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"], $message));
+//}
 
 $bankRedTokens = 7;
 $bankBlueTokens = 7;
@@ -42,8 +42,9 @@ $mysql->Prepare($query);
 $res = $mysql->ExecuteStatement(array(1) );
 while($rec = $res->fetch()){
     if($flag==1) {
-        array_push($players, new player($rec["userID"], 0, 0, 0, 0,
-            0, 0, 0, null));
+        array_push($players, new player($rec["userID"],0,0,0,0,
+            0,0,0,0,0,0,0,
+            0,0,0,0,0));
 
 //        echo $rec["userID"];
     }
