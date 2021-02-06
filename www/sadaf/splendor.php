@@ -740,7 +740,7 @@ $mysql = pdodb::getInstance();
 if(isset($_REQUEST['exit'])){
     $ExitU = "ch_" . $_SESSION["PersonID"];
     if(isset($_REQUEST[$ExitU])){
-        $query3 = "update sadaf.room set status ='Empty' where (roomID= " . $_SESSION["id"] .")and (managerID=".$_SESSION["PersonID"].")";
+        $query3 = "update sadaf.room set status ='Empty' , managerID = NULL where (roomID= " . $_SESSION["id"] .")and (managerID=".$_SESSION["PersonID"].")";
         $res3 = $mysql->Execute($query3);
         $query3 = "delete from sadaf.game where roomID =".$_SESSION["id"];
         $res3 = $mysql->Execute($query3);
