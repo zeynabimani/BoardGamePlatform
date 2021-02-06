@@ -6,6 +6,7 @@ include "gameClasses/Card.php";
 
 HTMLBegin();
 
+<<<<<<< HEAD
 //if(isset($_REQUEST["ChatSubmit"])){
 //    $message= $_POST['message'];
 //    $mysql = pdodb::getInstance();
@@ -13,6 +14,15 @@ HTMLBegin();
 //    $mysql->Prepare($query);
 //    $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"], $message));
 //}
+=======
+if(isset($_REQUEST["ChatSubmit"])){
+    $message= $_POST['message'];
+    $mysql = pdodb::getInstance();
+    $query = "insert into sadaf.chat (roomID, userID, msg) values (?,?,?)";
+    $mysql->Prepare($query);
+    $mysql->ExecuteStatement(array($_SESSION["id"], $_SESSION["PersonID"], $message));
+}
+>>>>>>> 084cabc401678e2fd7b6cf6a331393ed89babb0d
 
 $bankRedTokens = 7;
 $bankBlueTokens = 7;
@@ -444,16 +454,16 @@ function addtoDataBase($v){
             $idNew=$persons[$s][0];
         }
     }
-    $query3="select * from sadaf.game_request";
-    $res3 = $mysql->Execute($query3);
-    while($rec3 = $res3->fetch()){
-        if(($rec3["roomID"]!=$_SESSION["id"])&&($rec3["userID"]!=$idNew)){
-            $query = "insert ignore into sadaf.game_request (roomID, userID, status)
+//    $query3="select * from sadaf.game_request";
+//    $res3 = $mysql->Execute($query3);
+//    while($rec3 = $res3->fetch()){
+//        if(($rec3["roomID"]!=$_SESSION["id"])&&($rec3["userID"]!=$idNew)){
+            $query = "insert into sadaf.game_request (roomID, userID, status)
                 values (".$_SESSION["id"].",".$idNew.", 'Waiting');";
             $mysql->Execute($query);
-        }
-
-    }
+//        }
+//
+//    }
 
 
 
@@ -698,7 +708,7 @@ if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
                 ?>
         </table>
         <div style="width:20%; display:flex; flex-direction:column; border:2px solid black">
-            <div style="height:90%; ">
+            <div style="height:90%;">
                 <table class="table table-sm table-bordered table-striped">
                     <tr>
                         <th>نام</th>
@@ -706,7 +716,7 @@ if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
                     </tr>
                     <?php
                     $mysql = pdodb::getInstance();
-                    $query = "select * from sadaf.chat where roomID < " . $_SESSION["id"];
+                    $query = "select * from sadaf.chat where roomID = " . $_SESSION["id"];
                     $res = $mysql->Execute($query);
                     while($rec = $res->fetch()){
                         $query2 = "select UserID from sadaf.accountspecs where PersonID = " . $rec["userID"];
