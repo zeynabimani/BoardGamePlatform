@@ -11,7 +11,7 @@ if(isset($_REQUEST["ChatSubmit"])){
     $mysql = pdodb::getInstance();
     $query = "insert into sadaf.chat (roomID, userID, msg) values (?,?,?)";
     $mysql->Prepare($query);
-    $mysql->ExecuteStatement(array($rec["roomID"], $_SESSION["PersonID"], $message));
+    $mysql->ExecuteStatement(array($_SESSION["id"], $_SESSION["PersonID"], $message));
 }
 
 $bankRedTokens = 7;
@@ -705,7 +705,7 @@ if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
                     </tr>
                     <?php
                     $mysql = pdodb::getInstance();
-                    $query = "select * from sadaf.chat where roomID < " . $_SESSION["id"];
+                    $query = "select * from sadaf.chat where roomID = " . $_SESSION["id"];
                     $res = $mysql->Execute($query);
                     while($rec = $res->fetch()){
                         $query2 = "select UserID from sadaf.accountspecs where PersonID = " . $rec["userID"];
