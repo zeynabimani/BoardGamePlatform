@@ -7,7 +7,6 @@ if(isset($_REQUEST["RequestCheck"])){
     $res = $mysql->Execute($query);
     while($rec = $res->fetch()){
         $ChGameID = "ch_" . $rec["roomID"];
-//        echo $_REQUEST[$ChGameID];
         if(isset($_REQUEST[$ChGameID])){
             if($_REQUEST[$ChGameID] == 'پذیرش'){
                 $query2 = "insert into sadaf.game (roomID, userID) values (?,?)";
