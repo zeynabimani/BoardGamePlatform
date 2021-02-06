@@ -697,7 +697,7 @@ if(isset($_REQUEST["Users"])&&isset($_REQUEST["ersal"])){
                 ?>
         </table>
         <div style="width:20%; display:flex; flex-direction:column; border:2px solid black">
-            <div style="height:90%; ">
+            <div style="height:90%;">
                 <table class="table table-sm table-bordered table-striped">
                     <tr>
                         <th>نام</th>
